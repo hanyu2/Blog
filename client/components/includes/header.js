@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
+import { Link } from 'react-router-dom';
 
 class Header extends Component{
   render(){
@@ -7,10 +8,10 @@ class Header extends Component{
       <nav className="navbar navbar-default">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">Han Yu</a>
+            <Link to="/" className="navbar-brand">Han Yu</Link>
           </div>
           <ul className="nav navbar-nav">
-            <li className="active"><a href="#">Home</a></li>
+            <li className="active"><Link to="/">Home</Link></li>
             <li><a href="#">Blog</a></li>
           </ul>
         </div>

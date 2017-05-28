@@ -6,7 +6,7 @@ class Body extends Component{
     return(
       <div className="jumbotron">
         <h1 className="display-3">Hello, Guests!</h1>
-        <p class="lead">My blog is under construction, I promise it will come up soon!</p>
+        <p className="lead">My blog is under construction, I promise it will come up soon!</p>
       </div>
     );
   }
