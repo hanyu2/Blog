@@ -5,9 +5,7 @@ class Footer extends Component{
   render(){
     return(
       <footer className="footer">
-        <div className="container">
-          <p className="text-muted">Powered by Meteor.js and React.js.</p>
-        </div>
+        <p className="text-muted">Powered by Meteor.js and React.js.</p>
       </footer>
     );
   }
