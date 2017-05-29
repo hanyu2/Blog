@@ -175,6 +175,177 @@ class Body extends Component{
             </div>
         </section>
 
+        <section id="portfolio-section" className="portfolio-section section">
+           <h2 className="section-title">Portfolio</h2>
+           <ul id="filters" className="filters clearfix">
+               <li className="type active" data-filter="*">All</li>
+               <li className="type" data-filter=".backend">Back-end</li>
+               <li className="type" data-filter=".frontend">Front-end</li>
+           </ul>
+           <div className="items-wrapper isotope row" styles="position: relative; height: 624px;">
+               <div className="item frontend col-md-3 col-xs-6 " styles="position: absolute; left: 0px; top: 0px;">
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-1.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">AngularJS</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+               <div className="item backend col-md-3 col-xs-6 " styles="position: absolute; left: 270px; top: 0px;">
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-2.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">Django</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+               <div className="item backend frontend col-md-3 col-xs-6 " styles="position: absolute; left: 540px; top: 0px;">
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-3.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">Django/JavaScript</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+               <div className="item frontend col-md-3 col-xs-6 " styles="position: absolute; left: 810px; top: 0px;">
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-4.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">ReactJS</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+               <div className="item backend col-md-3 col-xs-6 " styles="position: absolute; left: 0px; top: 312px;">
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-5.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">Python</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+               <div className="item backend col-md-3 col-xs-6 " styles="position: absolute; left: 270px; top: 312px;">
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-6.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">JavaScript</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+
+               <div className="item frontend col-md-3 col-xs-6 " >
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-7.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">HTML/AngularJS</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+
+               <div className="item frontend backend col-md-3 col-xs-6 ">
+                   <div className="item-inner">
+                       <figure className="figure">
+                           <img className="img-responsive" src="./images/portfolio-8.jpg" alt=""/>
+                       </figure>
+                       <div className="content text-left">
+                           <h3 className="sub-title"><a href="/#">Project Lorem Ipsum</a></h3>
+                           <div className="meta">Python/AngularJS</div>
+                           <div className="action"><a href="/#">View on Github</a></div>
+                       </div>
+                       <a className="link-mask" href="/#"></a>
+                   </div>
+               </div>
+
+           </div>
+
+       </section>
+
+        <section id="testimonials-section" className="testimonials-section section">
+            <h2 className="section-title">Testimonials</h2>
+
+            <div id="testimonials-carousel" className="testimonials-carousel carousel slide" data-interval="8000">
+
+                <ol className="carousel-indicators">
+                    <li data-target="#testimonials-carousel" data-slide-to="0" className="active"></li>
+                    <li data-target="#testimonials-carousel" data-slide-to="1"></li>
+                    <li data-target="#testimonials-carousel" data-slide-to="2"></li>
+                </ol>
+
+                <div className="carousel-inner">
+                    <div className="item active">
+                        <blockquote className="quote">
+                            <i className="fa fa-quote-left"></i>
+                            <p>James is an excellent software engineer and he is passionate about what he does. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse porttitor metus eros.</p>
+                        </blockquote>
+                        <div className="source">
+                            <div className="name">Rob Olson</div>
+                            <div className="position">Product Manager, Apple</div>
+                        </div>
+
+                    </div>
+                    <div className="item">
+                        <blockquote className="quote">
+                            <p><i className="fa fa-quote-left"></i>
+                            Sed massa leo, aliquet non velit eu, volutpat vulputate odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse porttitor metus eros, ut fringilla nulla auctor a.</p>
+
+                        </blockquote>
+                        <div className="source">
+                            <div className="name">Christina Jensen</div>
+                            <div className="position">Senior Developer, Twitter</div>
+                        </div>
+
+                    </div>
+                    <div className="item">
+                        <blockquote className="quote">
+                            <p><i className="fa fa-quote-left"></i>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                        </blockquote>
+                        <div className="source">
+                            <div className="name">Austin Ward</div>
+                            <div className="position">CEO, Startup Hub</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
         <section id="contact-section" className="contact-section section">
             <h2 className="section-title">Get in Touch</h2>
             <div className="intro">
@@ -183,19 +354,13 @@ class Body extends Component{
                     <p>I&#39;m currently taking on freelance work. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
                     <p><strong>I can help with the following:</strong></p>
                     <ul className="list-unstyled service-list">
-                        <li><i className="fa fa-check" aria-hidden="true"></i> App development with ReactJS</li>
-                        <li><i className="fa fa-check" aria-hidden="true"></i> Front-end development with AngularJS</li>
-                        <li><i className="fa fa-check" aria-hidden="true"></i> Back-end development with Django/Python</li>
-                        <li><i className="fa fa-check" aria-hidden="true"></i> UI development</li>
-                        <li><i className="fa fa-check" aria-hidden="true"></i> UX prototyping</li>
+                        <li><i className="fa fa-check" aria-hidden="true"></i> App development with MetoerJS/ReactJS</li>
+                        <li><i className="fa fa-check" aria-hidden="true"></i> Back-end development with Java/Python</li>
                     </ul>
-                    <p>Drop me a line at <a href="mailto:someone@example.com">james.doe@website.com</a> or call me at <a href="tel:01234567890">0123 456 7890</a></p>
+                    <p>Drop me a line at <a href="mailto:hanyu2@asu.edu">hanyu2@asu.edu</a> or call me at 480 452 9484</p>
                     <ul className="social list-inline">
-                        <li><a href="http://themes.3rdwavemedia.com/sphere/1.1/#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="http://themes.3rdwavemedia.com/sphere/1.1/#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="http://themes.3rdwavemedia.com/sphere/1.1/#"><i className="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="http://themes.3rdwavemedia.com/sphere/1.1/#"><i className="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                        <li><a href="http://themes.3rdwavemedia.com/sphere/1.1/#"><i className="fa fa-skype" aria-hidden="true"></i></a></li>
+                        <li><a href="/#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="/#"><i className="fa fa-github-alt" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
