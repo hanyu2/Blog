@@ -4,8 +4,10 @@ import ReactDom from 'react-dom';
 class Footer extends Component{
   render(){
     return(
-      <footer className="footer">
-        <p className="text-muted">Powered by Meteor.js and React.js.</p>
+      <footer className="footer text-center">
+          <div className="container">
+              <small className="copyright">Template Copyright @ <a href="http://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small>
+          </div>
       </footer>
     );
   }
