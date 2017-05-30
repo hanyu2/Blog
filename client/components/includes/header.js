@@ -8,7 +8,7 @@ class Header extends Component{
       <header className="header">
         <div className="top-bar container-fluid">
             <div className="actions">
-                <a className="btn hidden-xs" href="mailto:hanyu2@asu.edu"><i className="fa fa-paper-plane" aria-hidden="true"></i> Hire Me</a>
+                <a className="btn hidden-xs animated infinite swing" href="mailto:hanyu2@asu.edu"><i className="fa fa-paper-plane" aria-hidden="true"></i> Hire Me</a>
                 <a className="btn" href="/#"><i className="fa fa-download" aria-hidden="true"></i> Download My Resume</a>
             </div>
             <ul className="social list-inline">
@@ -22,9 +22,12 @@ class Header extends Component{
                 <img className="profile-image" src="/images/profile-image.png" alt=""/>
                 <h1 className="name">Han Yu</h1>
                 <div className="title">Software Engineer</div>
+                <div className="location"><i className="fa fa-map-marker" aria-hidden="true">&nbsp;</i>Tempe, AZ, USA</div>
                 <div className="profile">
-                    <p>Master Student in Computer Science at Arizona State University</p>
-                    <p>Currently looking for full time jobs.</p>
+                    <p>Master Student in Computer Science at Arizona State University.<br/>
+                    Experienced in algorithm, software development, web development and data engineering.<br />
+                    Seeking job opportunities to solve challenging problems through teamwork.<br />
+                    Give me a chance, give you a surprise!</p>
                 </div>
             </div>
         </div>
@@ -34,7 +37,7 @@ class Header extends Component{
                 <ul className="list-inline">
                     <li className="email"><i className="fa fa-envelope"></i><a href="mailto:hanyu2@asu.edu">hanyu2@asu.edu</a></li>
                     <li><i className="fa fa-phone"></i> 480 452 9484</li>
-                    <li className="website"><i className="fa fa-globe"></i><a href="/#" target="_blank">portfoliosite.com</a></li>
+                    <li className="website"><i className="fa fa-globe"></i><a href="http://hanyublog.herokuapp.com" target="_blank">hanyublog.herokuapp.com</a></li>
                 </ul>
             </div>
         </div>
@@ -43,11 +46,9 @@ class Header extends Component{
             <div id="page-nav-wrapper" className="page-nav-wrapper text-center">
                 <div className="container">
                     <ul id="page-nav" className="nav page-nav list-inline">
-                        <li><a className="scrollto" href="/#experiences-section">Experiences</a></li>
                         <li><a className="scrollto" href="/#education-section">Education</a></li>
                         <li><a className="scrollto" href="/#skills-section">Skills</a></li>
-                        <li><a className="scrollto" href="/#testimonials-section">Testimonials</a></li>
-                        <li><a className="scrollto" href="/#portfolio-section">Portfolio</a></li>
+                        <li><a className="scrollto" href="/#project-section">Projects</a></li>
                         <li><a className="scrollto" href="/#contact-section">Contact</a></li>
                     </ul>
                 </div>
