@@ -44,45 +44,7 @@ class Body extends Component{
             </div>
         </section>
 
-        <section id="skills-section" className="skills-section section text-center ">
-            <h2 className="section-title">Professional Skills</h2>
-            <div className="top-skills">
-                <h3 className="subtitle">Top Skills</h3>
-                <div className="row">
-                    <div className="item col-xs-12 col-sm-4">
-                        <div className="item-inner">
-                            <h4 className="skill-name">Java</h4>
-                            <div className="level">Proficient, 5 years</div>
-                            <div className="desc">
-                              I started learning Java by myself when I was a freshman. I also learned Objected Oriented Programming and design patterns
-                              with which I developed some classic games in GUI.
-                            </div>
-                        </div>
-                    </div>
-                    <div className="item col-xs-12 col-sm-4">
-                        <div className="item-inner">
-                            <h4 className="skill-name">Meteor.js &amp; React.js</h4>
-                            <div className="level">Familiar, 1 years</div>
-                            <div className="desc">
-                              With two guys in 2016 summer, we developed an Android App Store with Meteor.js and React.js.
-                              Check out: <a href="http://appstore-meteor.herokuapp.com/">BitTiger AppStore</a><br/>
-                              And this website is also built with Meteor.js and React.js. Thanks!
-                            </div>
-                        </div>
-                    </div>
-                    <div className="item col-xs-12 col-sm-4">
-                        <div className="item-inner">
-                            <h4 className="skill-name">Python</h4>
-                            <div className="level">Familiar, 2 years</div>
-                            <div className="desc">
-                              Used python in AI class to implement searching, Reinforcement Learning algorithms. And I am
-                              currently using Python to crawl intersting data on the Internet.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <section id="projects-section" className="projects-section section">
             <h2 className="section-title">Projects</h2>
@@ -179,18 +141,94 @@ class Body extends Component{
                                 <li>Integrated Google play services and Google Maps API</li>
                                 <li>Integrated different React components to make website more scalable and manageable. </li>
                                 <li>Designed location strategy between GPS and Network to save more energy</li>
-                                <li>Video description at:<a href="https://www.youtube.com/watch?v=Y3tJOB4-XMc&t=7s">Whatsup</a></li>
+                                <li>Video demo at:<a href="https://www.youtube.com/watch?v=Y3tJOB4-XMc&t=7s">Whatsup</a></li>
                             </ul>
                       </div>
                   </div>
 
+                  <div className="item">
+                      <div className="project-place">
+                          <h3 className="place">Internship project</h3>
+                          <div className="location"><i className="fa fa-map-marker" aria-hidden="true"></i>Shandong Synthesis Electronic Technology Co., Ltd, Jinan, Shandong, China</div>
+                      </div>
+                      <div className="job-meta">
+                          <div className="title">Web Email Service</div>
+                          <div className="time">Summer 2013</div>
+                      </div>
+                      <div className="project-desc">
+                            <ul>
+                                <li>Led a team of 4 members to develop mail module for OA system on Spring MVC.</li>
+                                <li>Used imap protocol to support interactions with multiple mail servers.</li>
+                                <li>Redesigned receiving mail process to fix bugs in synchronization between client and mail server</li>
+                                <li>Video demo at:<a href="https://www.youtube.com/watch?v=q_57AgaqJsA">Email Service</a></li>
+                            </ul>
+                      </div>
+                  </div>
               </div>
+        </section>
+
+        <section id="skills-section" className="skills-section section text-center ">
+            <h2 className="section-title">Professional Skills</h2>
+            <div className="top-skills">
+                <h3 className="subtitle">Top Skills</h3>
+                <div className="row">
+                    <div className="item col-xs-12 col-sm-4">
+                        <div className="item-inner">
+                            <h4 className="skill-name">Java</h4>
+                            <div className="level">Proficient, 5 years</div>
+                            <div className="desc">
+                              I started learning Java by myself when I was a freshman. I also learned Objected Oriented Programming and design patterns
+                              with which I developed some classic games in GUI.
+                            </div>
+                        </div>
+                    </div>
+                    <div className="item col-xs-12 col-sm-4">
+                        <div className="item-inner">
+                            <h4 className="skill-name">Meteor.js &amp; React.js</h4>
+                            <div className="level">Familiar, 1 years</div>
+                            <div className="desc">
+                              With two guys in 2016 summer, we developed an Android App Store with Meteor.js and React.js.
+                              Check out: <a href="http://appstore-meteor.herokuapp.com/">BitTiger AppStore</a><br/>
+                              And this website is also built with Meteor.js and React.js. Thanks!
+                            </div>
+                        </div>
+                    </div>
+                    <div className="item col-xs-12 col-sm-4">
+                        <div className="item-inner">
+                            <h4 className="skill-name">Python</h4>
+                            <div className="level">Familiar, 2 years</div>
+                            <div className="desc">
+                              Used python in AI class to implement searching, Reinforcement Learning algorithms. And I am
+                              currently using Python to crawl intersting data on the Internet.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="other-skills">
+                <h3 className="subtitle">Other Skills</h3>
+                <div className="misc-skills">
+                    <span className="skill-tag">Algorithm</span>
+                    <span className="skill-tag">Git</span>
+                    <span className="skill-tag">HTML</span>
+                    <span className="skill-tag">CSS</span>
+                    <span className="skill-tag">MongoDB</span>
+                    <br/>
+                    <span className="skill-tag">Spark</span>
+                    <span className="skill-tag">Scala</span>
+                    <span className="skill-tag">Ambari</span>
+                    <span className="skill-tag">Matlab</span>
+                    <span className="skill-tag">SQL</span>
+                    <span className="skill-tag">Android</span>
+                </div>
+            </div>
         </section>
 
         <section id="awards-section" className="award-section section">
           <h2 className="section-title">Awards</h2>
           <i className="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;1st place at Coding Challenge hosted by SODA, ASU
-          <div className="time-awards">Spring 2016</div>
+          <div className="time-awards"><i className="fa fa-clock-o" aria-hidden="true"></i> Spring 2016</div>
         </section>
 
         <section id="contact-section" className="contact-section section">
