@@ -18,7 +18,7 @@ class Footer extends Component{
               </div>
             </div>
           <div className="container">
-              <small className="copyright">Template Copyright @ <a href="http://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small>
+              <small className="copyright">Thanks <a href="http://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small>
           </div>
       </footer>
     );

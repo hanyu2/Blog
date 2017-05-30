@@ -82,24 +82,115 @@ class Body extends Component{
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div className="other-skills">
-                <h3 className="subtitle">Other Skills</h3>
-                <div className="misc-skills">
-                    <span className="skill-tag">Algorithm</span>
-                    <span className="skill-tag">Git</span>
-                    <span className="skill-tag">HTML</span>
-                    <span className="skill-tag">CSS</span>
-                    <span className="skill-tag">MongoDB</span>
-                    <br/>
-                    <span className="skill-tag">Spark</span>
-                    <span className="skill-tag">Scala</span>
-                    <span className="skill-tag">Ambari</span>
-                    <span className="skill-tag">Matlab</span>
-                    <span className="skill-tag">SQL</span>
-                    <span className="skill-tag">Android</span>
-                </div>
-            </div>
+        <section id="projects-section" className="projects-section section">
+            <h2 className="section-title">Projects</h2>
+              <div className="timeline">
+                  <div className="item">
+                      <div className="study-place">
+                          <h1 className="place">Class project</h1>
+                          <div className="location"><i className="fa fa-map-marker" aria-hidden="true"></i>Arizona State University</div>
+                      </div>
+                      <div className="job-meta">
+                          <div className="title">Data mining project</div>
+                          <div className="time">Spring 2017</div>
+                      </div>
+                      <div className="project-desc">
+                            <ul>
+                                <li>Used Matlab to implement some data mining algorithms and test on data samples.</li>
+                                <li>Implemented K-nearest neighbor  alorithm and SSE to train the data and made predications.</li>
+                                <li>Implemented K-means and tested SSE with different K values to get better centroid numbers.</li>
+                                <li>Implemented active learning with LR classifier and applied ensemble methods to make better prediction from several algorithms.</li>
+                            </ul>
+                      </div>
+                  </div>
+
+                  <div className="item">
+                      <div className="project-place">
+                          <h3 className="place">Individual project</h3>
+                          <div className="location"><i className="fa fa-map-marker" aria-hidden="true"></i>Arizona State University</div>
+                      </div>
+                      <div className="job-meta">
+                          <div className="title">Movie Analysis on Zeppelin</div>
+                          <div className="time">Spring 2017</div>
+                      </div>
+                      <div className="project-desc">
+                            <ul>
+                                <li>Used Apache Zeppelin on Hortonworks and analized movielens datasets on HDFS.</li>
+                                <li>Wrote Scala scripts to format data and converted data to Spark DataFrame.</li>
+                                <li>Queried on Spark DataFrames and exposed results as a SQL table, did queries on SQL table via Spark SQL.</li>
+                            </ul>
+                      </div>
+                  </div>
+
+                  <div className="item">
+                      <div className="project-place">
+                          <h3 className="place">Class project</h3>
+                          <div className="location"><i className="fa fa-map-marker" aria-hidden="true"></i>Arizona State University</div>
+                      </div>
+                      <div className="job-meta">
+                          <div className="title">Movie Rating with </div>
+                          <div className="title">Collaborative Filtering</div>
+                          <div className="time">Fall 2016</div>
+                      </div>
+                      <div className="project-desc">
+                            <ul>
+                                <li>Used Spark MLLib ALS recommender system on movielens 10M stable benchmark rating dataset.</li>
+                                <li>Launched a Hadoop cluster with Spark using Amazon's Elastic MapReduce service.</li>
+                                <li>Wrote scripts to produce similar movies from 1 million ratings.</li>
+                            </ul>
+                      </div>
+                  </div>
+
+                  <div className="item">
+                      <div className="project-place">
+                          <h3 className="place">Team project</h3>
+                          <div className="location"><i className="fa fa-map-marker" aria-hidden="true"></i>Tempe, AZ, USA</div>
+                      </div>
+                      <div className="job-meta">
+                          <div className="title">Mini AppStore with Meteor.js</div>
+                          <div className="time">Summer 2016</div>
+                      </div>
+                      <div className="project-desc">
+                            <ul>
+                                <li>Built a Python crawler that crawled 1K+ app information from Huawei app store and stored in MongoDB.</li>
+                                <li>Designed and implemented an App Store with Agile development and RESTful API.</li>
+                                <li>Used Meteor.js methods to make shorter response and reduce network latency.</li>
+                                <li>Integrated different React components to make website more scalable and manageable. </li>
+                                <li>Deplyed at Heroku and mLab. Demo at:<a href="http://appstore-meteor.herokuapp.com/">BitTiger AppStore</a></li>
+                            </ul>
+                      </div>
+                  </div>
+
+                  <div className="item">
+                      <div className="project-place">
+                          <h3 className="place">Class project</h3>
+                          <div className="location"><i className="fa fa-map-marker" aria-hidden="true"></i>Tempe, AZ, USA</div>
+                      </div>
+                      <div className="job-meta">
+                          <div className="title">Android App</div>
+                          <div className="time">Spring 2016</div>
+                      </div>
+                      <div className="project-desc">
+                            <ul>
+                                <li>Developed an Android App based on user’s location to post status and information.</li>
+                                <li>Contributed to the full mobile application development lifecycle from planning, requirement gathering, development and testing.</li>
+                                <li>Integrated Google play services and Google Maps API</li>
+                                <li>Integrated different React components to make website more scalable and manageable. </li>
+                                <li>Designed location strategy between GPS and Network to save more energy</li>
+                                <li>Video description at:<a href="https://www.youtube.com/watch?v=Y3tJOB4-XMc&t=7s">Whatsup</a></li>
+                            </ul>
+                      </div>
+                  </div>
+
+              </div>
+        </section>
+
+        <section id="awards-section" className="award-section section">
+          <h2 className="section-title">Awards</h2>
+          <i className="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;1st place at Coding Challenge hosted by SODA, ASU
+          <div className="time-awards">Spring 2016</div>
         </section>
 
         <section id="contact-section" className="contact-section section">

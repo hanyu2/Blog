@@ -47,8 +47,9 @@ class Header extends Component{
                 <div className="container">
                     <ul id="page-nav" className="nav page-nav list-inline">
                         <li><a className="scrollto" href="/#education-section">Education</a></li>
+                        <li><a className="scrollto" href="/#projects-section">Projects</a></li>
                         <li><a className="scrollto" href="/#skills-section">Skills</a></li>
-                        <li><a className="scrollto" href="/#project-section">Projects</a></li>
+                        <li><a className="scrollto" href="/#awards-section">Awards</a></li>
                         <li><a className="scrollto" href="/#contact-section">Contact</a></li>
                     </ul>
                 </div>
