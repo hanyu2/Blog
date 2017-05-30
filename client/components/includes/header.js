@@ -38,7 +38,7 @@ class Header extends Component{
                 <ul className="list-inline">
                     <li className="email"><i className="fa fa-envelope"></i><a href="mailto:hanyu2@asu.edu">hanyu2@asu.edu</a></li>
                     <li><i className="fa fa-phone"></i> 480 452 9484</li>
-                    <li className="website"><i className="fa fa-globe"></i><a href="http://hanyublog.herokuapp.com" target="_blank">hanyublog.herokuapp.com</a></li>
+                    <li className="website"><i className="fa fa-globe"></i><a href="http://www.han-yu.me" target="_blank">www.han-yu.me</a></li>
                 </ul>
             </div>
         </div>
