@@ -1,4 +1,44 @@
 .header {
-    background: #00BCD4;
-    color: #fff;
+  background: #00BCD4;
+  color: #fff;
+}
+
+.footer {
+  padding-top:  25px;
+  overflow:hidden;
+  background: #fafafa;
+}
+
+.react-text {
+  position: relative;
+  color: #61dafb;
+  font-size: 120%;
+  float:right;
+}
+
+.react-top{
+  margin-top:10px;
+}
+
+.powered-by{
+  overflow:hidden;
+}
+
+.logos{
+  position: relative;
+  float: left;
+  left: 44%;
+  padding-top: 1px;
+}
+
+.react-logo{
+  margin:0 auto;
+  float: left;
+  margin-top:2px;
+  overflow:hidden;
+}
+
+.meteor-logo{
+  margin:0 auto;
+  float:left;
 }
