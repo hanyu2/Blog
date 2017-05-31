@@ -228,7 +228,7 @@ class Body extends Component{
         <section id="awards-section" className="award-section section">
           <h2 className="section-title">Awards</h2>
           <i className="fa fa-trophy" aria-hidden="true"></i>&nbsp;&nbsp;1st place at Coding Challenge hosted by SODA, ASU
-          <div className="time-awards"><i className="fa fa-clock-o" aria-hidden="true"></i> Spring 2016</div>
+          <div className="time-awards"><i className="fa fa-clock-o" aria-hidden="true"></i> Spring 2017</div>
         </section>
 
         <section id="contact-section" className="contact-section section">
@@ -243,7 +243,7 @@ class Body extends Component{
                         <li><i className="fa fa-check" aria-hidden="true"></i> Back-end development with Java/Python</li>
                         <li><i className="fa fa-check" aria-hidden="true"></i> Data engineering on Hadoop with Spark.</li>
                     </ul>
-                    <p>Drop me a line at <a href="mailto:hanyu2@asu.edu">hanyu2@asu.edu</a> or call me at 480 452 9484</p>
+                    <p>Drop me a line at <a href="mailto:hanyu2@asu.edu">hanyu2@asu.edu</a> or call me at 480-452-9484</p>
                     <ul className="social list-inline">
                         <li><a href="https://www.linkedin.com/in/hanyu2"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
                         <li><a href="https://github.com/hanyu2"><i className="fa fa-github-alt" aria-hidden="true"></i></a></li>
