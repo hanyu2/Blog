@@ -10,7 +10,7 @@ class Header extends Component{
             <div className="actions">
                 <a className="btn hidden-xs animated infinite swing" href="mailto:hanyu2@asu.edu"><i className="fa fa-paper-plane" aria-hidden="true"></i> Hire Me</a>
                 <Link to="/blog" className="btn" href="/#"><i className="fa fa-book" aria-hidden="true"></i>Blog</Link>
-                <a className="btn" href="/#"><i className="fa fa-download" aria-hidden="true"></i> Download My Resume</a>
+                <a className="btn" href="https://drive.google.com/file/d/0BwS99_zxAhRBdmxQd1VHS29MZGc/view?usp=sharing"><i className="fa fa-download" aria-hidden="true"></i> Download My Resume</a>
             </div>
             <ul className="social list-inline">
                 <li><a href="https://www.linkedin.com/in/hanyu2"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>

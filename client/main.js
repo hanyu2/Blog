@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app.js';
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
-import Blog from './components/blogs/Blog.js';
+import Blog from './components/blogs/blog.js';
 
 const routes = (
   <BrowserRouter>
