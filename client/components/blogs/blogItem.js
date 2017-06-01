@@ -5,17 +5,22 @@ import {Link} from 'react-router-dom';
 import {Posts} from '../../../imports/collections/posts.js';
 
 class BlogItem extends Component{
-  renderList(){
-
+  componentWillMount(){
+    Meteor.subscribe('posts');
   }
 
   render(){
-    return (
-      <li className="list-group-item">
-        Post
-      </li>
-    );
+      console.log(this.props.posts);
+      return(
+        <div className="list-group-item">
+          test
+        </div>
+      );
+
   };
 }
 
-export default BlogItem;
+
+export default createContainer(() => {
+  return { posts: Posts.find({}).fetch()};
+}, BlogItem);
