@@ -5,7 +5,6 @@ import BlogDetail from './blogDetail.js';
 
 const BlogItem = ({blog}) =>{
   const { title } = blog;
-  //const url = 'blog/' + {._id};
   const url = `/blog/${blog._id}`;
   return(
     <div className='list-group-item'>

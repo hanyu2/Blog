@@ -7,7 +7,6 @@ import {Blogs} from '../../../imports/collections/blogs.js';
 
 class BlogList extends Component{
   render(){
-    console.log(this.props.blogs);
     return(
       <div>
         <ul className="list-group">
