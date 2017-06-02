@@ -1,8 +1,8 @@
-import {Posts} from '../imports/collections/posts.js';
+import {Blogs} from '../imports/collections/blogs.js';
 
-if (Posts.find().count() === 0) {
-  Posts.insert({
-    postId: 12345,
+if (Blogs.find().count() === 0) {
+  Blogs.insert({
+    blogId: 12345,
     title: 'test blog',
     tag: 'test',
     author: 'Han',
@@ -12,8 +12,8 @@ if (Posts.find().count() === 0) {
     comments: 0,
     likes: 0,
   });
-  Posts.insert({
-    postId: 12346,
+  Blogs.insert({
+    blogId: 12346,
     title: 'test blog 222',
     tag: 'test',
     author: 'Han',
@@ -23,8 +23,8 @@ if (Posts.find().count() === 0) {
     comments: 0,
     likes: 0,
   });
-  Posts.insert({
-    postId: 12347,
+  Blogs.insert({
+    blogId: 12347,
     title: 'test remote connection',
     tag: 'test',
     author: 'Han',
@@ -34,5 +34,4 @@ if (Posts.find().count() === 0) {
     comments: 0,
     likes: 0,
   });
-  console.log(Posts.find({}).count());
 };

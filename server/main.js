@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
-import { Posts } from '../imports/collections/posts';
+import { Blogs } from '../imports/collections/blogs';
 
 Meteor.startup(() => {
-  Meteor.publish('posts', function() {
-   return Posts.find({});
+  Meteor.publish('blog', function() {
+   return Blogs.find({});
  });
 });

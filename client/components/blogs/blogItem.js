@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
 
-const BlogItem = ({post}) =>{
-  const { title } = post;
+const BlogItem = ({blog}) =>{
+  const { title } = blog;
   return(
     <div className='list-group-item'>
-      title:{title};
+      {title}
     </div>
   );
 }
