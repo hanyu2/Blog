@@ -11,7 +11,7 @@ class BlogHeader extends Component{
         </div>
         <ul className="nav navbar-nav">
           <li>
-            <Link to="blog" >Blog</Link>
+            <Link to="/blog" >Blog</Link>
           </li>
         </ul>
       </nav>

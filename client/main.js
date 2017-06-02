@@ -4,12 +4,16 @@ import App from './components/app.js';
 import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 import Blog from './components/blogs/blog.js';
 import BlogDetail from './components/blogs/blogDetail.js';
+import Login from'./components/authentication/login.js';
+import Register from './components/authentication/register.js';
 
 const routes = (
   <BrowserRouter>
     <Switch>
      <Route path="/blog/:id" component={BlogDetail}/>
      <Route path="/blog" component={Blog}/>
+     <Route path="/login" component={Login}/>
+     <Route path="/register" component={Register}/>
      <Route path="/" component={App}/>
    </Switch>
   </BrowserRouter>

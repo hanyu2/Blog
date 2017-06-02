@@ -13,9 +13,9 @@ class BlogDetail extends Component {
         <div>
           <BlogHeader />
         </div>
-        <div>
+        <section className='section'>
           {blog.content}
-        </div>
+        </section>
       </div>
     );
   }
