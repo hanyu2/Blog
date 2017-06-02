@@ -5,17 +5,29 @@ import {Blogs} from '../../../imports/collections/blogs.js';
 import BlogHeader from './blogHeader.js';
 
 class BlogDetail extends Component {
-  render() {
+
+  getContent(){
     const blog = Blogs.find({_id : this.props.match.params.id}).fetch()[0];
-    return(
+    return (
       <div>
-      <div>
-      <BlogHeader />
-      </div>
-        {blog.content}
+        <div>
+          <BlogHeader />
+        </div>
+        <div>
+          {blog.content}
+        </div>
       </div>
     );
+  }
+
+  render() {
+    return this.props.subsready ? this.getContent() : <div></div>;
   };
 }
 
-export default BlogDetail;
+export default createContainer(() =>{
+  handle = Meteor.subscribe('blogs');
+  return {
+    subsready:  handle.ready(),
+  };
+}, BlogDetail);
