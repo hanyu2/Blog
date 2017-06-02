@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
+import BlogDetail from './blogDetail.js';
 
 const BlogItem = ({blog}) =>{
   const { title } = blog;
+  //const url = 'blog/' + {._id};
+  const url = `/blog/${blog._id}`;
   return(
     <div className='list-group-item'>
-      {title}
+      <Link to={url}>{title}</Link>
     </div>
   );
 }
