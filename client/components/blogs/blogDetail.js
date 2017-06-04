@@ -13,7 +13,7 @@ class BlogDetail extends Component {
         <div>
           <BlogHeader />
         </div>
-        <div className="article__feature" style={{"background-image": "url(http://blog.capsulecat.com/wp-content/uploads/sites/2/2016/01/cropped-hero-space-stand-compressed-1.jpeg)"}}>
+        <div className="article__feature" style={{"backgroundImage": "url(http://blog.capsulecat.com/wp-content/uploads/sites/2/2016/01/cropped-hero-space-stand-compressed-1.jpeg)"}}>
           <h1 className="article__title article__title--feature">
             {blog.title}
           </h1>

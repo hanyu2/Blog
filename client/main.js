@@ -6,19 +6,17 @@ import Blog from './components/blogs/blog.js';
 import BlogDetail from './components/blogs/blogDetail.js';
 import Login from'./components/authentication/login.js';
 import Register from './components/authentication/register.js';
+import Create from './components/blogs/blogCreate.js';
 
-function requireAuth(nextState, replaceState) {
-  if (!auth.loggedIn())
-    replaceState({ nextPathname: nextState.location.pathname }, '/login')
-}
 
 const routes = (
   <BrowserRouter>
     <Switch>
      <Route path="/blog/:id" component={BlogDetail}/>
      <Route path="/blog" component={Blog}/>
-     <Route path="/login" component={Login} onEnter={requireAuth}/>
-     <Route path="/register" component={Register}/>
+     <Route path="/login" component={Login} />
+    //  <Route path="/register" component={Register}/>
+     <Route path="/create" component={Create}/>
      <Route path="/" component={App}/>
    </Switch>
   </BrowserRouter>

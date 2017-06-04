@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
-import { withRouter } from 'react-router';
+import {withRouter} from 'react-router';
 
 class Login extends Component {
   constructor(props) {
@@ -24,10 +24,12 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const prop = this.props;
+    const stat = this.state;
     const res = Meteor.loginWithPassword(this.state.email, this.state.password, function(error) {
       if (error) {
         alert(error);
       } else {
+        Session.set('email', stat.email)
         prop.history.push('/blog');
       }
     });
