@@ -32,7 +32,7 @@ Meteor.startup(() => {
   $.getScript('js/easypiechart.min.js');
   $.getScript('js/jquery.scrollTo.min.js');
   $.getScript('js/style-switcher.js');
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/at.js/1.4.0/js/jquery.atwho.min.js"></script>
+
 
   ReactDOM.render(routes, document.querySelector(".render-target"));
 });
