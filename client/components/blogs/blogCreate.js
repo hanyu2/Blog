@@ -2,16 +2,17 @@ import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import BlogHeader from './blogHeader.js';
 import BlogList from './blogList.js';
+import Editor from './editor.js';
 
-class Blog extends Component{
+class BlogCreate extends Component{
   render(){
     return(
       <div>
         <BlogHeader />
-        create a blog here
+        <Editor />
       </div>
     );
   };
 }
 
-export default Blog;
+export default BlogCreate;

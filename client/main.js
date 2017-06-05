@@ -6,7 +6,7 @@ import Blog from './components/blogs/blog.js';
 import BlogDetail from './components/blogs/blogDetail.js';
 import Login from'./components/authentication/login.js';
 import Register from './components/authentication/register.js';
-import Create from './components/blogs/blogCreate.js';
+import BlogCreate from './components/blogs/blogCreate.js';
 
 
 const routes = (
@@ -16,7 +16,7 @@ const routes = (
      <Route path="/blog" component={Blog}/>
      <Route path="/login" component={Login} />
     //  <Route path="/register" component={Register}/>
-     <Route path="/create" component={Create}/>
+     <Route path="/create" component={BlogCreate}/>
      <Route path="/" component={App}/>
    </Switch>
   </BrowserRouter>
@@ -32,6 +32,7 @@ Meteor.startup(() => {
   $.getScript('js/easypiechart.min.js');
   $.getScript('js/jquery.scrollTo.min.js');
   $.getScript('js/style-switcher.js');
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/at.js/1.4.0/js/jquery.atwho.min.js"></script>
 
   ReactDOM.render(routes, document.querySelector(".render-target"));
 });
