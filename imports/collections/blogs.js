@@ -12,3 +12,18 @@ if (Meteor.isServer) {
     return blog;
   });
 }
+
+Meteor.methods({
+  'blogs.insert': function(title, content) {
+    return Blogs.insert({
+      createdAt: new Date(),
+      title: title,
+      tag: 'test',
+      author: this.userId,
+      content: content,
+      view: 0,
+      comments: 0,
+      likes: 0,
+    });
+  }
+});

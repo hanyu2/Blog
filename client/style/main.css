@@ -161,3 +161,8 @@ h1 {
     font-size: 3rem;
   }
 }
+
+.editor-margin{
+  margin-left: 20px;
+  margin-right: 20px;
+}

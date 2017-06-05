@@ -3,9 +3,7 @@ import ReactDom from 'react-dom';
 import BlogHeader from './blogHeader.js';
 import BlogList from './blogList.js';
 import Editor from './editor.js';
-import BlogTitle from './blogTitle.js';
 import { ClientStorage } from 'meteor/ostrio:cstorage';
-import Save from './blogSave.js';
 
 class BlogCreate extends Component{
 
@@ -17,9 +15,7 @@ class BlogCreate extends Component{
     return(
       <div>
         <BlogHeader />
-        <BlogTitle />
         <Editor />
-        <Save />
       </div>
     );
   }
