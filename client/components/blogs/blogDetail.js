@@ -3,11 +3,14 @@ import ReactDom from 'react-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 import {Blogs} from '../../../imports/collections/blogs.js';
 import BlogHeader from './blogHeader.js';
+import { ClientStorage } from 'meteor/ostrio:cstorage';
 
 class BlogDetail extends Component {
 
   getContent(){
     const blog = Blogs.find({_id : this.props.match.params.id}).fetch()[0];
+    const content = blog.content;
+    console.log(content);
     return (
       <div>
         <div>
@@ -19,7 +22,7 @@ class BlogDetail extends Component {
           </h1>
         </div>
         <section className="section">
-          {blog.content}
+          <div dangerouslySetInnerHTML={{ __html: content }} />
         </section>
       </div>
     );
