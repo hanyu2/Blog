@@ -55,7 +55,7 @@ class Editor extends Component {
               ['para',['ul','ol','paragraph']],
               ['height',['height']],
               ['table',['table']],
-              ['insert',['media','link','hr']],
+              ['insert',['picture','video','media','link','hr']],
               ['view',['fullscreen','codeview']],
               ['help',['help']]
             ]
