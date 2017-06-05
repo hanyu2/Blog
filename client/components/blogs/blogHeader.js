@@ -1,11 +1,23 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
+import { ClientStorage } from 'meteor/ostrio:cstorage';
+import {withRouter} from 'react-router';
 
 class BlogHeader extends Component{
 
+  constructor(props) {
+    super(props);
+  }
+  onLogout(event){
+    event.preventDefault();
+    console.log("loggin out");
+    ClientStorage.empty();
+    this.props.history.push('/blog');
+  }
+
   render(){
-    const isLoggedIn = Session.get('email') === 'hanyu2@asu.edu';
+    const isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
     let submit = null;
     if (!isLoggedIn) {
       submit = <div></div>
@@ -15,6 +27,13 @@ class BlogHeader extends Component{
           <Link to="/create">Create</Link>
         </li>
       </ul>;
+    }
+
+    let logout = null;
+    if (!isLoggedIn) {
+      submit = <div></div>
+    } else {
+      logout= <div><button type="button" className="btn btn-default navbar-btn" onClick={this.onLogout.bind(this)}>Logout</button></div>
     }
 
     return(
@@ -28,10 +47,9 @@ class BlogHeader extends Component{
           </li>
         </ul>
         {submit}
-
+        {logout}
       </nav>
     )
   };
 }
-
-export default BlogHeader;
+export default withRouter(BlogHeader);

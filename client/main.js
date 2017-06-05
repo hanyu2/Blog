@@ -7,7 +7,20 @@ import BlogDetail from './components/blogs/blogDetail.js';
 import Login from'./components/authentication/login.js';
 import Register from './components/authentication/register.js';
 import BlogCreate from './components/blogs/blogCreate.js';
+import { ClientStorage } from 'meteor/ostrio:cstorage';
 
+function loggedIn() {
+  alert(ClientStorage.get('user'));
+  return isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
+}
+
+function requireAuth(nextState, replace) {
+  if (!loggedIn()) {
+    replace({
+      pathname: '/blog'
+    })
+  }
+}
 
 const routes = (
   <BrowserRouter>
@@ -16,7 +29,7 @@ const routes = (
      <Route path="/blog" component={Blog}/>
      <Route path="/login" component={Login} />
     //  <Route path="/register" component={Register}/>
-     <Route path="/create" component={BlogCreate}/>
+     <Route path="/create" component={BlogCreate} onEnter={requireAuth} />
      <Route path="/" component={App}/>
    </Switch>
   </BrowserRouter>

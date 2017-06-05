@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withRouter} from 'react-router';
+import { ClientStorage } from 'meteor/ostrio:cstorage';
 
 class Login extends Component {
   constructor(props) {
@@ -29,7 +30,7 @@ class Login extends Component {
       if (error) {
         alert(error);
       } else {
-        Session.set('email', stat.email)
+        ClientStorage.set('user', stat.email);
         prop.history.push('/blog');
       }
     });
