@@ -15,6 +15,7 @@ class Editor extends Component {
     this.state = {
        title: '',
        content: '',
+       newTag: ''
      }
   }
 
@@ -66,15 +67,24 @@ class Editor extends Component {
        </div>
     )
   }
+
+  onChildChanged(newTag) {
+    this.setState({
+        newTag: newTag
+    }, function() {
+        Meteor.call('blog_tags.insert', this.state.newTag);
+    })
+  }
+
   render() {
     return (
       <div>
       {this.getEditor()}
-      <BlogTagList />
+      <BlogTagList callbackFromParent={this.onChildChanged.bind(this)}/>
         <div>
-          <button type="button" className="btn btn-success" onClick={this.postBlog.bind(this)}>Post</button>&nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" className="btn btn-info">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
-          <button type="button" className="btn btn-danger">Drop</button>
+          <button type="button" className="btn btn-success margin-around" onClick={this.postBlog.bind(this)}>Post</button>
+          <button type="button" className="btn btn-info margin-around">Save</button>
+          <button type="button" className="btn btn-danger margin-around">Drop</button>
         </div>
       </div>
     );
