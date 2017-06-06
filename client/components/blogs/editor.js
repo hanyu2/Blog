@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import ReactSummernote from 'react-summernote';
+import {withRouter} from 'react-router';
+import BlogTagList from './blogTagList.js';
 import 'react-summernote/dist/react-summernote.css'; // import styles
 import 'react-summernote/lang/summernote-es-EU'; // you can import any other locale
 
 var bold = {
 	fontWeight:'bold'
 };
-
 
 class Editor extends Component {
   constructor(props){
@@ -31,10 +32,10 @@ class Editor extends Component {
   postBlog(event){
     event.preventDefault();
     Meteor.call('blogs.insert', this.state.title, this.state.content);
+    this.props.history.push('/blog');
   }
-
-  render() {
-    return (
+  getEditor(){
+    return(
       <div className="editor-margin">
         <div className="form-group">
           <label style={bold}>Title:</label>
@@ -62,13 +63,22 @@ class Editor extends Component {
           }}
           onChange={this.getContent.bind(this)}
         />
-
-        <button type="button" className="btn btn-success" onClick={this.postBlog.bind(this)}>Post</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" className="btn btn-info">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" className="btn btn-danger">Drop</button>
+       </div>
+    )
+  }
+  render() {
+    return (
+      <div>
+      {this.getEditor()}
+      <BlogTagList />
+        <div>
+          <button type="button" className="btn btn-success" onClick={this.postBlog.bind(this)}>Post</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" className="btn btn-info">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" className="btn btn-danger">Drop</button>
+        </div>
       </div>
     );
   }
 }
 
-export default Editor;
+export default withRouter(Editor);

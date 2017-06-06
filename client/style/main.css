@@ -166,3 +166,13 @@ h1 {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.rightMost{
+  float: right;
+}
+
+.margin-around{
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-right: 5px
+}
