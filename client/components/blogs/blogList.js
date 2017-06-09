@@ -4,21 +4,20 @@ import {Link} from 'react-router-dom';
 import BlogItem from './blogItem.js';
 import { createContainer } from 'meteor/react-meteor-data';
 import {Blogs} from '../../../imports/collections/blogs.js';
-import {BlogTag} from '../../../imports/collections/blog_tags.js';
-
 
 class BlogList extends Component{
-
   render(){
     return(
-      <div className="community__posts">
-        {this.props.blogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}
+      <div>
+        <ul className="list-group margin-around">
+            {this.props.blogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}
+        </ul>
       </div>
     );
   };
 }
 
 export default createContainer((props) => {
-  Meteor.subscribe('blogs');
-  return {blogs: Blogs.find({}).fetch()};
+  Meteor.subscribe('blogs')
+  return {blogs: Blogs.find({}).fetch() };
 }, BlogList);
