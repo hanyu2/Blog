@@ -7,10 +7,19 @@ import { ClientStorage } from 'meteor/ostrio:cstorage';
 
 class BlogDetail extends Component {
 
+  getTags(tag){
+    return(
+      tag.map(tag => {
+        return <button className="btn btn-default center">{tag}</button>
+      })
+    )
+  }
+
   getContent(){
     const blog = Blogs.find({_id : this.props.match.params.id}).fetch()[0];
     const content = blog.content;
-    console.log(content);
+    const tags = blog.tag;
+    console.log(tags);
     return (
       <div>
         <div>
@@ -20,6 +29,9 @@ class BlogDetail extends Component {
           <h1 className="article__title article__title--feature">
             {blog.title}
           </h1>
+        </div>
+        <div>
+          {this.getTags(tags)}
         </div>
         <section className="section">
           <div dangerouslySetInnerHTML={{ __html: content }} />

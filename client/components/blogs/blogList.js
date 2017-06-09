@@ -9,7 +9,7 @@ class BlogList extends Component{
   render(){
     return(
       <div>
-        <ul className="list-group">
+        <ul className="list-group margin-around">
             {this.props.blogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}
         </ul>
       </div>

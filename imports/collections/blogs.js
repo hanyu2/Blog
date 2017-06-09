@@ -12,11 +12,11 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'blogs.insert': function(title, content) {
+  'blogs.insert': function(title, content, tags) {
     return Blogs.insert({
       createdAt: new Date(),
       title: title,
-      tag: 'test',
+      tag: tags,
       author: this.userId,
       content: content,
       view: 0,

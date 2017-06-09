@@ -15,7 +15,7 @@ class Editor extends Component {
     this.state = {
        title: '',
        content: '',
-       newTag: ''
+       tags: []
      }
   }
 
@@ -32,7 +32,7 @@ class Editor extends Component {
 
   postBlog(event){
     event.preventDefault();
-    Meteor.call('blogs.insert', this.state.title, this.state.content);
+    Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags);
     this.props.history.push('/blog');
   }
   getEditor(){
@@ -70,9 +70,9 @@ class Editor extends Component {
 
   onChildChanged(newTag) {
     this.setState({
-        newTag: newTag
+        tags: newTag
     }, function() {
-        Meteor.call('blog_tags.insert', this.state.newTag);
+
     })
   }
 
