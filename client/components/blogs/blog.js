@@ -6,9 +6,11 @@ import BlogList from './blogList.js';
 class Blog extends Component{
   render(){
     return(
-      <div>
-        <BlogHeader />
-        <BlogList />
+      <div className="webapp-content">
+        <div className="community">
+          <BlogHeader />
+          <BlogList />
+        </div>
       </div>
     );
   };

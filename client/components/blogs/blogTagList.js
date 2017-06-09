@@ -81,7 +81,7 @@ class BlogTagList extends Component{
         </div>
         <div className="dropdown  in-line">
           <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown button
+            Select Tags
           </button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {this.getAllTags()}

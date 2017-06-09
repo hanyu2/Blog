@@ -14,8 +14,14 @@ class BlogCreate extends Component{
   renderContent(){
     return(
       <div>
-        <BlogHeader />
-        <Editor />
+        <div className="webapp-content">
+          <div className="community">
+            <BlogHeader />
+          </div>
+        </div>
+        <div>
+          <Editor />
+        </div>
       </div>
     );
   }

@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import BlogDetail from './blogDetail.js';
 import { ClientStorage } from 'meteor/ostrio:cstorage';
 
-
 class BlogItem extends Component{
   constructor(props){
     super(props);
@@ -14,7 +13,7 @@ class BlogItem extends Component{
     const tags = this.props.blog.tag.slice();
     return(
       tags.map(tag => {
-        return <button key={tag} className="btn btn-sm">{tag}</button>
+        return <button key={tag} className="btn btn-outline-info toRight">{tag}</button>
       })
     )
   }
@@ -25,18 +24,20 @@ class BlogItem extends Component{
     const url = `/blog/${this.props.blog._id}`;
     isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
     return(
-      <div className='list-group-item'>
-        <Link to={url}>{title}</Link>
-        {isLoggedIn ? <Link className='rightMost' to={url}>edit</Link> : ''}
-        {this.getTags()}
+      <div className="community-post__content">
+        <div className="community-post__body">
+          <Link to={url} className="community-post__title">{title}</Link>
+
+            {/* {isLoggedIn ? <Link className='rightMost' to={url}>edit</Link> : ''}*/}
+        </div>
       </div>
     )
   }
 
   render(){
     return(
-      <div>
-        {this.getBlogItem()}
+      <div className='community-post'>
+          {this.getBlogItem()}
       </div>
     )
   }
