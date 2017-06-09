@@ -10,7 +10,7 @@ class BlogDetail extends Component {
   getTags(tag){
     return(
       tag.map(tag => {
-        return <button className="btn btn-default center">{tag}</button>
+        return <button className="btn btn-default" key={tag}>{tag}</button>
       })
     )
   }
@@ -19,7 +19,7 @@ class BlogDetail extends Component {
     const blog = Blogs.find({_id : this.props.match.params.id}).fetch()[0];
     const content = blog.content;
     const tags = blog.tag;
-    console.log(tags);
+    const time = blog.createdAt.toDateString();
     return (
       <div>
         <div>
@@ -30,12 +30,15 @@ class BlogDetail extends Component {
             {blog.title}
           </h1>
         </div>
-        <div>
+        <div className="center">
+          Han Yu wrote on {time}
           {this.getTags(tags)}
         </div>
-        <section className="section">
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </section>
+        <article>
+          <div className="container">
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </div>
+        </article>
       </div>
     );
   }
