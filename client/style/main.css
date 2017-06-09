@@ -258,3 +258,11 @@ h1 {
 .toRight{
   text-align: right;
 }
+
+.webapp-content .community {
+    background-color: #f9fbfb;
+    font-size: 14px;
+    font-family: 'Open Sans',sans-serif;
+    -webkit-font-smoothing: antialiased;
+    height: 100vh;
+}

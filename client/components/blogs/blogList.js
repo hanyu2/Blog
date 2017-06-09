@@ -11,10 +11,8 @@ class BlogList extends Component{
 
   render(){
     return(
-      <div className="community__container with-sidebar">
-        <div className="community__posts">
-            {this.props.blogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}
-        </div>
+      <div className="community__posts">
+        {this.props.blogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}
       </div>
     );
   };

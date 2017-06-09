@@ -29,7 +29,16 @@ class BlogItem extends Component{
           <Link to={url} className="community-post__title">{title}</Link>
 
             {/* {isLoggedIn ? <Link className='rightMost' to={url}>edit</Link> : ''}*/}
+            <div className="community-post__footer">
+              <div className="article__star btn-heart">
+                <i className="fa fa-heart"></i>
+              </div>
+              <a className="community-post__comment-count">
+                <img src="https://web-cdn.codementor.io/assets/images//Community/icon-comment.png" />
+              </a>
+            </div>
         </div>
+
       </div>
     )
   }
