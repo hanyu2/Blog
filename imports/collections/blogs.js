@@ -12,11 +12,12 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'blogs.insert': function(title, content, tags) {
+  'blogs.insert': function(title, content, tags, status) {
     return Blogs.insert({
       createdAt: new Date(),
       title: title,
       tag: tags,
+      status: status,
       author: this.userId,
       content: content,
       view: 0,
@@ -25,7 +26,6 @@ Meteor.methods({
     });
   },
   'blogs.delete': function(blog) {
-    console.log(blog);
     Blogs.remove(blog);
   }
 });

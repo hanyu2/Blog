@@ -15,7 +15,8 @@ class Editor extends Component {
     this.state = {
        title: '',
        content: '',
-       tags: []
+       tags: [],
+			 status: 'posted'
      }
   }
 
@@ -32,8 +33,14 @@ class Editor extends Component {
 
   postBlog(event){
     event.preventDefault();
-    Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags);
-    this.props.history.push('/blog');
+		if(this.state.title.length === 0){
+			alert("Title is empty!");
+		}else if(this.state.content.length === 0){
+			alert("content is empty");
+		}else{
+	    Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags, this.state.status);
+			this.props.history.push('/blog');
+		}
   }
   getEditor(){
     return(
@@ -76,6 +83,20 @@ class Editor extends Component {
     })
   }
 
+	drop(){
+		this.props.history.push('/blog');
+	}
+
+	saveBlog(){
+		this.setState({
+			status:'saved'
+		}, function(){
+			Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags, this.state.status);
+			this.props.history.push('/blog');
+			console.log("saved");
+		});
+	}
+
   render() {
     return (
       <div>
@@ -83,8 +104,8 @@ class Editor extends Component {
       <BlogTagList callbackFromParent={this.onChildChanged.bind(this)}/>
         <div>
           <button type="button" className="btn btn-success margin-around" onClick={this.postBlog.bind(this)}>Post</button>
-          <button type="button" className="btn btn-info margin-around">Save</button>
-          <button type="button" className="btn btn-danger margin-around">Drop</button>
+          <button type="button" className="btn btn-info margin-around" onClick={this.saveBlog.bind(this)}>Save</button>
+          <button type="button" className="btn btn-danger margin-around" onClick={this.drop.bind(this)}>Drop</button>
         </div>
       </div>
     );

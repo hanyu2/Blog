@@ -19,5 +19,5 @@ class BlogList extends Component{
 
 export default createContainer((props) => {
   Meteor.subscribe('blogs')
-  return {blogs: Blogs.find({}).fetch() };
+  return {blogs: Blogs.find({status : "posted"}).fetch() };
 }, BlogList);

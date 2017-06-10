@@ -187,3 +187,11 @@ h1 {
 .right{
   float: right;
 }
+
+.container {
+    flex-direction: column;
+    width: 90%;
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+}
