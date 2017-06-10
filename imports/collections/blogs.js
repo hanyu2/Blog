@@ -23,6 +23,10 @@ Meteor.methods({
       comments: 0,
       likes: 0,
     });
+  },
+  'blogs.delete': function(blog) {
+    console.log(blog);
+    Blogs.remove(blog);
   }
 });
 

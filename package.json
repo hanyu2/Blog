@@ -10,6 +10,7 @@
     "bcrypt": "^1.0.2",
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
