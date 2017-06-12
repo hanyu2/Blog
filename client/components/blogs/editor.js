@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import ReactSummernote from 'react-summernote';
 import {withRouter} from 'react-router';
 import BlogTagList from './blogTagList.js';
+import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles
-import 'react-summernote/lang/summernote-es-EU'; // you can import any other locale
+import 'react-summernote/lang/summernote-ru-RU'; // you can import any other locale
+
+// Import bootstrap(v3 or v4) dependencies
+import 'bootstrap/js/modal';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 var bold = {
 	fontWeight:'bold'
@@ -49,7 +56,7 @@ class Editor extends Component {
           <label style={bold}>Title:</label>
           <input type="text" className="form-control " id="usr" onChange={this.getTitle.bind(this)}/>
         </div>
-        <ReactSummernote
+				<ReactSummernote
           value=""
           options={{
             lang: 'eu-EU',

@@ -2,9 +2,16 @@ import React, {Component} from 'react';
 import BlogHeader from './blogHeader.js';
 import {Blogs} from '../../../imports/collections/blogs.js';
 import { createContainer } from 'meteor/react-meteor-data';
+import {withRouter} from 'react-router';
+import BlogTagList from './blogTagList.js';
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles
-import 'react-summernote/lang/summernote-es-EU'; // you can import any other locale
+
+// Import bootstrap(v3 or v4) dependencies
+import 'bootstrap/js/modal';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
 
 var bold = {
 	fontWeight:'bold'
@@ -14,7 +21,8 @@ class BlogEdit extends Component{
   constructor(props){
     super(props);
     this.state ={
-      title :''
+      title :'',
+      tag:[]
     }
   }
 
@@ -39,30 +47,39 @@ class BlogEdit extends Component{
     return this.props.blog[0].content;
   }
 
+  onChildChanged(newTag) {
+    this.setState({
+        tags: newTag
+    }, function() {
+
+    })
+  }
+
   getEditor(){
     return(
-      <ReactSummernote
-        value={this.getContent()}
-        options={{
-          lang: 'eu-EU',
-          height: 350,
-          dialogsInBody: true,
-          toolbar: [
-            ['save',['save']],
-            ['style',['style']],
-            ['font',['bold','italic','underline','clear']],
-            ['fontname',['fontname']],
-            ['color',['color']],
-            ['para',['ul','ol','paragraph']],
-            ['height',['height']],
-            ['table',['table']],
-            ['insert',['picture','video','media','link','hr']],
-            ['view',['fullscreen','codeview']],
-            ['help',['help']]
-          ]
-        }}
-        onChange={this.updateContent.bind(this)}
-      />
+      <div>
+        <ReactSummernote
+          value={this.getContent()}
+          options={{
+            height: 350,
+            dialogsInBody: true,
+            toolbar: [
+              ['save',['save']],
+              ['style',['style']],
+              ['font',['bold','italic','underline','clear']],
+              ['fontname',['fontname']],
+              ['color',['color']],
+              ['para',['ul','ol','paragraph']],
+              ['height',['height']],
+              ['table',['table']],
+              ['insert',['picture','video','media','link','hr']],
+              ['view',['fullscreen','codeview']],
+              ['help',['help']]
+            ]
+          }}
+          onChange={this.getContent.bind(this)}
+        />
+      </div>
     )
   }
 
@@ -79,9 +96,17 @@ class BlogEdit extends Component{
     return(
       <div>
         <BlogHeader />
-        <div className="margin-around">
-          {this.props.ready ?  this.getTitleEditor(): ''}
-          {this.props.ready ?  this.getEditor(): ''}
+        <div>
+          <div className="margin-around">
+            {this.props.ready ?  this.getTitleEditor(): ''}
+            {this.props.ready ?  this.getEditor(): ''}
+          </div>
+          <BlogTagList callbackFromParent={this.onChildChanged.bind(this)}/>
+          <div>
+  	        <button type="button" className="btn btn-success margin-around" >Post</button>
+  	        <button type="button" className="btn btn-info margin-around" >Save</button>
+  	        <button type="button" className="btn btn-danger margin-around" >Drop</button>
+  	      </div>
         </div>
       </div>
     );

@@ -6,8 +6,10 @@
   },
   "dependencies": {
     "animate.css": "^3.5.2",
+    "babel-polyfill": "^6.23.0",
     "babel-runtime": "^6.20.0",
     "bcrypt": "^1.0.2",
+    "draft-js": "^0.10.1",
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
