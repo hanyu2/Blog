@@ -24,4 +24,4 @@ accounts-base
 accounts-ui
 session
 ostrio:cstorage
-twbs:bootstrap
+summernote:summernote

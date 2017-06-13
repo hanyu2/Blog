@@ -45,7 +45,7 @@ class BlogTagList extends Component{
     return(
       this.props.blog_tags.map(tag =>{
         return(
-          <li key={tag._id}><a className="dropdown-item" name={tag.name} onClick={this.selectTag.bind(this)}>{tag.name}</a></li>
+          <li key={tag._id}><a name={tag.name} onClick={this.selectTag.bind(this)}>{tag.name}</a></li>
         )
       })
     )
@@ -80,12 +80,12 @@ class BlogTagList extends Component{
           {this.getSelectedTags()}
         </div>
         <div className="dropdown  in-line">
-          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
             Select Tags
-          </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <span className="caret"></span></button>
+          <ul className="dropdown-menu">
             {this.getAllTags()}
-          </div>
+          </ul>
         </div>
         <form onSubmit={this.addTag.bind(this)} className="in-line-left">
           <div className="form-inline">

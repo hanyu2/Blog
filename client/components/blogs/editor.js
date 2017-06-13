@@ -3,7 +3,6 @@ import {withRouter} from 'react-router';
 import BlogTagList from './blogTagList.js';
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles
-import 'react-summernote/lang/summernote-ru-RU'; // you can import any other locale
 
 // Import bootstrap(v3 or v4) dependencies
 import 'bootstrap/js/modal';
@@ -49,15 +48,24 @@ class Editor extends Component {
 			this.props.history.push('/blog');
 		}
   }
+
+	componentWillReceiveProps(nextProps) {
+		console.log(nextProps);
+		this.setState({
+			title: nextProps.blog.title
+		})
+	}
+
   getEditor(){
+
     return(
       <div className="editor-margin">
         <div className="form-group">
           <label style={bold}>Title:</label>
-          <input type="text" className="form-control " id="usr" onChange={this.getTitle.bind(this)}/>
+          <input type="text" className="form-control " id="usr" onChange={this.getTitle.bind(this)} value={this.props.blog === undefined ? "" :  this.props.blog[0].title}/>
         </div>
 				<ReactSummernote
-          value=""
+          value={this.props.blog === undefined ? "" : this.props.blog[0].content}
           options={{
             lang: 'eu-EU',
             height: 350,
@@ -107,13 +115,13 @@ class Editor extends Component {
   render() {
     return (
       <div>
-      {this.getEditor()}
-      <BlogTagList callbackFromParent={this.onChildChanged.bind(this)}/>
-        <div>
-          <button type="button" className="btn btn-success margin-around" onClick={this.postBlog.bind(this)}>Post</button>
-          <button type="button" className="btn btn-info margin-around" onClick={this.saveBlog.bind(this)}>Save</button>
-          <button type="button" className="btn btn-danger margin-around" onClick={this.drop.bind(this)}>Drop</button>
-        </div>
+	      {this.getEditor()}
+	      <BlogTagList callbackFromParent={this.onChildChanged.bind(this)}/>
+	      <div>
+	        <button type="button" className="btn btn-success margin-around" onClick={this.postBlog.bind(this)}>Post</button>
+	        <button type="button" className="btn btn-info margin-around" onClick={this.saveBlog.bind(this)}>Save</button>
+	        <button type="button" className="btn btn-danger margin-around" onClick={this.drop.bind(this)}>Drop</button>
+	      </div>
       </div>
     );
   }
