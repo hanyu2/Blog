@@ -16,6 +16,10 @@ class BlogHeader extends Component{
     this.props.history.push('/blog');
   }
 
+  componentDidMount(){
+    $('.navbar-default').css('margin-bottom','0px');
+  }
+
   render(){
     const isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
     let submit = null;

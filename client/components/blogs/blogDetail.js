@@ -4,6 +4,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import {Blogs} from '../../../imports/collections/blogs.js';
 import BlogHeader from './blogHeader.js';
 import { ClientStorage } from 'meteor/ostrio:cstorage';
+import BlogComment from './blogComment.js';
 
 class BlogDetail extends Component {
 
@@ -39,6 +40,7 @@ class BlogDetail extends Component {
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </article>
+        <BlogComment />
       </div>
     );
   }

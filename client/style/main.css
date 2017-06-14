@@ -220,3 +220,7 @@ h1 {
   margin: 0 auto;
   position: relative;
 }
+
+.comment-height{
+  height:200px
+}
