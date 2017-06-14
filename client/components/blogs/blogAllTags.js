@@ -1,39 +1,50 @@
 import React, {Component} from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import {BlogTags} from '../../../imports/collections/blog_tags.js';
+import {selectTag} from '../../actions/tagActions.js';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 class BlogAllTags extends Component{
   constructor(props){
     super(props);
-    this.state={
-      tags:[]
-    }
+  }
+
+  clickTag(event){
+    event.preventDefault();
+    this.props.selectTag(event.target.name);
   }
 
   getAllTags(){
     return(
-      this.state.tags.map(tag => {
-        return <button className="btn btn-default" key={tag._id}>{tag.name}</button>
+      this.props.blog_tags.map(tag => {
+        return <button className="btn btn-default" onClick={this.clickTag.bind(this)} key={tag._id} name={tag.name}>{tag.name}</button>
       })
     )
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      tags : nextProps.blog_tags
-    })
-  }
-
   render(){
-      return (
-        <div className="center margin-around">
-           {this.props.ready ? this.getAllTags() : ' '}
-        </div>
-      )
+    return (
+      <div className="center margin-around">
+         {this.props.ready ? this.getAllTags() : ' '}
+      </div>
+    )
   }
 }
 
-export default createContainer((props) => {
+function mapStateToProps(state) {
+  return {
+      tag: state.tag
+  };
+}
+
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({selectTag: selectTag}, dispatch);
+}
+
+const TagContainer = createContainer((props) => {
   handle = Meteor.subscribe('blog_tags')
-  return {ready: handle.ready(), blog_tags: BlogTags.find({}).fetch()};
+  return {blog_tags: BlogTags.find({}).fetch(), ready:handle.ready()};
 }, BlogAllTags);
+
+export default connect(mapStateToProps, matchDispatchToProps)(TagContainer);
