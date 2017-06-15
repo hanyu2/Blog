@@ -1,2 +1,2 @@
-# [Blog](http://han-yu.me/blog)
-Personal website with Meteor.js and React.js
+# [Blog](http://blog.han-yu.me/blog)
+Blog package with Meteor.js, React.js and Redux

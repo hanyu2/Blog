@@ -28,13 +28,17 @@ class BlogComment extends Component{
       alert("Please enter comment content.");
 
     }else{
-      console.log(this.props);
       Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id);
     }
   }
 
   componentDidMount(){
     $(".dropdown-toggle").dropdown();
+
+  }
+
+  componentDidUpdate(){
+    $('.note-editable.panel-body').find('p').val('');
   }
 
   getEditor(){
@@ -47,13 +51,8 @@ class BlogComment extends Component{
             height: 100,
             dialogsInBody: true,
             toolbar: [
-              ['save',['save']],
               ['style',['style']],
-              ['font',['bold','italic','underline','clear']],
-              ['fontname',['fontname']],
-              ['color',['color']],
-              ['insert',['picture','video','link']],
-              ['view',['fullscreen','codeview']],
+              ['insert',['picture','link']],
             ]
           }}
           onChange={this.getContent.bind(this)}

@@ -5,6 +5,7 @@ import {Blogs} from '../../../imports/collections/blogs.js';
 import BlogHeader from './blogHeader.js';
 import { ClientStorage } from 'meteor/ostrio:cstorage';
 import BlogComment from './blogComment.js';
+import CommentList from './commentList.js';
 
 class BlogDetail extends Component {
 
@@ -40,6 +41,7 @@ class BlogDetail extends Component {
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </article>
+        <CommentList blog={blog}/>
         <BlogComment blog={blog}/>
       </div>
     );
