@@ -25,3 +25,5 @@ accounts-ui
 session
 ostrio:cstorage
 summernote:summernote
+accounts-google
+service-configuration

@@ -9,11 +9,16 @@ import 'bootstrap/js/dropdown';
 import 'bootstrap/js/tooltip';
 import 'bootstrap/dist/css/bootstrap.css';
 
+var hidden = {
+	display: 'none'
+};
+
 class BlogComment extends Component{
   constructor(props){
     super(props);
     this.state={
-      comment:''
+      comment:'',
+      user:''
     }
   }
 
@@ -35,10 +40,30 @@ class BlogComment extends Component{
 
   componentDidMount(){
     $(".dropdown-toggle").dropdown();
-
+    $(".note-editing-area").click(function(){
+      console.log(Meteor.user());
+      if(Meteor.user() === null){
+        alert("Please login to post");
+      }
+    });
   }
 
 
+
+  login(){
+    Meteor.loginWithGoogle({
+      requestPermissions: ['email']
+    }, function(error) {
+      if (error) {
+        console.log(error); //If there is any error, will get error here
+      }else{
+        console.log(Meteor.user());// If there is successful login, you will get login details here
+        this.setState({
+          user: Meteor.user().profile.name
+        })
+      }
+    }.bind(this));
+  }
   getEditor(){
     return(
       <div className="editor-margin">
@@ -63,7 +88,8 @@ class BlogComment extends Component{
     return(
       <div className="container">
         {this.getEditor()}
-        <button type="button" className="btn btn-primary button-right" onClick={this.submitComment.bind(this)}>Submit</button>
+        <button type="button" className="btn btn-primary button-right" onClick={this.login.bind(this)}>Login</button>
+        <button type="button" className="btn btn-primary button-right" style={hidden} onClick={this.submitComment.bind(this)}>Submit</button>
       </div>
     )
   }
