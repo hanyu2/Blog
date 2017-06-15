@@ -40,7 +40,7 @@ class BlogDetail extends Component {
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </article>
-        <BlogComment />
+        <BlogComment blog={blog}/>
       </div>
     );
   }

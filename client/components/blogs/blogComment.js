@@ -10,13 +10,30 @@ import 'bootstrap/js/tooltip';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class BlogComment extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      comment:''
+    }
+  }
 
-  getContent(){
+  getContent(content){
+    this.setState({
+      comment:content
+    })
+  }
 
+  submitComment(){
+    if(this.state.comment.length === 0){
+      alert("Please enter comment content.");
+
+    }else{
+      console.log(this.props);
+      Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id);
+    }
   }
 
   componentDidMount(){
-    $('.panel-body').height('100px');
     $(".dropdown-toggle").dropdown();
   }
 
@@ -24,10 +41,10 @@ class BlogComment extends Component{
     return(
       <div className="editor-margin">
         <ReactSummernote
-          value={this.props.blog === undefined ? "" : this.props.blog[0].content}
+          value=""
           options={{
             lang: 'eu-EU',
-            height: 350,
+            height: 100,
             dialogsInBody: true,
             toolbar: [
               ['save',['save']],
@@ -35,12 +52,8 @@ class BlogComment extends Component{
               ['font',['bold','italic','underline','clear']],
               ['fontname',['fontname']],
               ['color',['color']],
-              ['para',['ul','ol','paragraph']],
-              ['height',['height']],
-              ['table',['table']],
-              ['insert',['picture','video','media','link','hr']],
+              ['insert',['picture','video','link']],
               ['view',['fullscreen','codeview']],
-              ['help',['help']]
             ]
           }}
           onChange={this.getContent.bind(this)}
@@ -53,7 +66,7 @@ class BlogComment extends Component{
     return(
       <div className="container">
         {this.getEditor()}
-        <button type="button" className="btn btn-primary button-right">Submit</button>
+        <button type="button" className="btn btn-primary button-right" onClick={this.submitComment.bind(this)}>Submit</button>
       </div>
     )
   }
