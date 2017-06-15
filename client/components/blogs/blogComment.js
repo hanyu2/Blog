@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Editor from './editor.js';
+import {Modal, Button} from 'react-bootstrap';
+
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles
 
@@ -9,8 +11,8 @@ import 'bootstrap/js/dropdown';
 import 'bootstrap/js/tooltip';
 import 'bootstrap/dist/css/bootstrap.css';
 
-var hidden = {
-	display: 'none'
+var width = {
+  width : '100px'
 };
 
 class BlogComment extends Component{
@@ -18,7 +20,8 @@ class BlogComment extends Component{
     super(props);
     this.state={
       comment:'',
-      user:''
+      user:'',
+      showModal: false
     }
   }
 
@@ -38,16 +41,19 @@ class BlogComment extends Component{
     }
   }
 
+  close(){
+    console.log("close");
+    this.setState({ showModal: false });
+  }
+
   componentDidMount(){
     $(".dropdown-toggle").dropdown();
     $(".note-editing-area").click(function(){
-      console.log(Meteor.user());
       if(Meteor.user() === null){
-        alert("Please login to post");
+        this.setState({ showModal: true });
       }
-    });
+    }.bind(this));
   }
-
 
 
   login(){
@@ -55,15 +61,27 @@ class BlogComment extends Component{
       requestPermissions: ['email']
     }, function(error) {
       if (error) {
-        console.log(error); //If there is any error, will get error here
+        alert(error); //If there is any error, will get error here
       }else{
         console.log(Meteor.user());// If there is successful login, you will get login details here
+        this.close();
         this.setState({
           user: Meteor.user().profile.name
         })
       }
     }.bind(this));
   }
+
+  hideSubmitButton(){
+    if(Meteor.user() === null){
+      return '';
+    }else{
+      return(
+        <button type="button" name="submit" className="btn btn-primary button-right" onClick={this.submitComment.bind(this)}>Submit</button>
+      )
+    }
+  }
+
   getEditor(){
     return(
       <div className="editor-margin">
@@ -88,8 +106,17 @@ class BlogComment extends Component{
     return(
       <div className="container">
         {this.getEditor()}
-        <button type="button" className="btn btn-primary button-right" onClick={this.login.bind(this)}>Login</button>
-        <button type="button" className="btn btn-primary button-right" style={hidden} onClick={this.submitComment.bind(this)}>Submit</button>
+        {this.hideSubmitButton()}
+        <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+          <Modal.Body>
+            <h4>Please login</h4>
+          </Modal.Body>
+          <Modal.Footer>
+            <div className="center">
+              <button type="button" className="btn btn-danger" style={width} onClick={this.login.bind(this)}><i className="fa fa-google" aria-hidden="true"></i></button>
+            </div>
+          </Modal.Footer>
+        </Modal>
       </div>
     )
   }
