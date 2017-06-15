@@ -3,6 +3,8 @@ import {withRouter} from 'react-router';
 import BlogTagList from './blogTagList.js';
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles
+import $ from "jquery";
+import "bootstrap/js/dropdown";
 
 // Import bootstrap(v3 or v4) dependencies
 import 'bootstrap/js/modal';
@@ -56,8 +58,11 @@ class Editor extends Component {
 		})
 	}
 
-  getEditor(){
+	componentDidMount(){
+		$(".dropdown-toggle").dropdown();
+	}
 
+  getEditor(){
     return(
       <div className="editor-margin">
         <div className="form-group">

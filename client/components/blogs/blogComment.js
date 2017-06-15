@@ -17,11 +17,10 @@ class BlogComment extends Component{
 
   componentDidMount(){
     $('.panel-body').height('100px');
+    $(".dropdown-toggle").dropdown();
   }
 
   getEditor(){
-
-
     return(
       <div className="editor-margin">
         <ReactSummernote
@@ -54,6 +53,7 @@ class BlogComment extends Component{
     return(
       <div className="container">
         {this.getEditor()}
+        <button type="button" className="btn btn-primary button-right">Submit</button>
       </div>
     )
   }

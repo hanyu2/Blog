@@ -224,3 +224,8 @@ h1 {
 .comment-height{
   height:200px
 }
+
+.button-right{
+  margin-right: 20px;
+  float: right;
+}
