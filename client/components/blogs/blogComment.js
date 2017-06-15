@@ -29,6 +29,7 @@ class BlogComment extends Component{
 
     }else{
       Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id);
+      document.querySelector(".note-editable.panel-body").innerHTML="";
     }
   }
 
@@ -37,9 +38,6 @@ class BlogComment extends Component{
 
   }
 
-  componentDidUpdate(){
-    $('.note-editable.panel-body').find('p').val('');
-  }
 
   getEditor(){
     return(

@@ -9,6 +9,7 @@ class CommentItem extends Component{
     return(
       <div className="container jumbotron jumbotron-fluid">
         <div dangerouslySetInnerHTML={{ __html: comment.comment }} />
+        {comment.date.toString()}
       </div>
     )
   }
