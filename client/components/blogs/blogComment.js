@@ -110,6 +110,7 @@ class BlogComment extends Component{
     Meteor._localStorage.removeItem('Meteor.loginToken');
     Meteor._localStorage.removeItem('Meteor.loginTokenExpires');
     Meteor._localStorage.removeItem('Meteor.userId');
+    Meteor.users.remove({});
     this.setState({
       user:''
     })
