@@ -35,10 +35,13 @@ class BlogComment extends Component{
   submitComment(){
     if(this.state.comment.length === 0){
       alert("Please enter comment content.");
-
     }else{
-      Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id);
+      console.log(this.state.user);
+      Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id, this.state.user);
       document.querySelector(".note-editable.panel-body").innerHTML="";
+      this.setState({
+        comment:''
+      })
     }
   }
 
@@ -50,7 +53,7 @@ class BlogComment extends Component{
   componentDidMount(){
     $(".dropdown-toggle").dropdown();
     $(".note-editing-area").click(function(){
-      if(Meteor.user() === null){
+      if(this.state.user.length === 0){
         this.setState({ showModal: true });
       }
     }.bind(this));
@@ -64,9 +67,9 @@ class BlogComment extends Component{
       if (error) {
         console.log(error); //If there is any error, will get error here
       }else{
-        console.log(Meteor.user());// If there is successful login, you will get login details here
+        const user = Meteor.user();
         this.setState({
-          user:Meteor.user()
+          user:user.profile.name
         })
         this.close();
       }

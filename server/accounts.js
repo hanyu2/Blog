@@ -7,7 +7,7 @@ if (settings) {
 
   ServiceConfiguration.configurations.insert({
     service: 'google',
-    clientId: settings.clientId,
-    secret: settings.secret
+    clientId: "117054743738-hqs7vkc1o7vn0aji6ehimkd4br3ff32a.apps.googleusercontent.com",
+    secret: "CguNZYjsNEWT_rgOlZndJYtS"
   });
 }

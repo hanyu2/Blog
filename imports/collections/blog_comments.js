@@ -7,10 +7,11 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'blog_comments.insert': function(comment, blogId) {
+  'blog_comments.insert': function(comment, blogId, userName) {
     BlogComments.insert({
       comment: comment,
       blogId : blogId,
+      userName : userName,
       date: new Date()
     })
   }
