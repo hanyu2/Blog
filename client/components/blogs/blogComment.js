@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Editor from './editor.js';
 import {Modal, Button} from 'react-bootstrap';
+import {withRouter} from 'react-router';
 
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles
@@ -65,6 +66,8 @@ class BlogComment extends Component{
       }else{
         console.log(Meteor.user());// If there is successful login, you will get login details here
         this.close();
+        const url = `/blog/${this.props.blog._id}`;
+        this.props.history.push(url);
         this.setState({
           user: Meteor.user().profile.name
         })
@@ -102,10 +105,23 @@ class BlogComment extends Component{
     )
   }
 
+  logout(){
+    Meteor.logout();
+    Meteor._localStorage.removeItem('Meteor.loginToken');
+    Meteor._localStorage.removeItem('Meteor.loginTokenExpires');
+    Meteor._localStorage.removeItem('Meteor.userId');
+    this.setState({
+      user:''
+    })
+    console.log("logged out");
+    console.log(Meteor.user());
+  }
+
   render(){
     return(
       <div className="container">
         {this.getEditor()}
+        <button type="button" className="btn btn-primary button-right" onClick={this.logout.bind(this)}>Logout</button>
         {this.hideSubmitButton()}
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Body>
@@ -122,4 +138,4 @@ class BlogComment extends Component{
   }
 }
 
-export default BlogComment;
+export default withRouter(BlogComment);
