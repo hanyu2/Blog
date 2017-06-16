@@ -70,6 +70,9 @@ class BlogComment extends Component{
         const user = Meteor.user();
         this.setState({
           user:user.profile.name
+        }, function(){
+          console.log(window.location.href);
+          console.log(this.state.user);
         })
         this.close();
       }
