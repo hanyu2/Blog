@@ -62,21 +62,19 @@ class BlogComment extends Component{
       requestPermissions: ['email']
     }, function(error) {
       if (error) {
-        alert(error); //If there is any error, will get error here
+        console.log(error); //If there is any error, will get error here
       }else{
         console.log(Meteor.user());// If there is successful login, you will get login details here
-        this.close();
-        const url = `/blog/${this.props.blog._id}`;
-        this.props.history.push(url);
         this.setState({
-          user: Meteor.user().profile.name
+          user:Meteor.user()
         })
+        this.close();
       }
     }.bind(this));
   }
 
   hideSubmitButton(){
-    if(Meteor.user() === null){
+    if(this.state.user.length === 0){
       return '';
     }else{
       return(
@@ -110,19 +108,24 @@ class BlogComment extends Component{
     Meteor._localStorage.removeItem('Meteor.loginToken');
     Meteor._localStorage.removeItem('Meteor.loginTokenExpires');
     Meteor._localStorage.removeItem('Meteor.userId');
-    Meteor.users.remove({});
     this.setState({
       user:''
-    })
-    console.log("logged out");
-    console.log(Meteor.user());
+    });
+  }
+
+  logoutButton(){
+    if(this.state.user.length === 0){
+      return '';
+    }else{
+      return <button type="button" className="btn btn-primary button-right" onClick={this.logout.bind(this)}>Logout</button>
+    }
   }
 
   render(){
     return(
       <div className="container">
         {this.getEditor()}
-        <button type="button" className="btn btn-primary button-right" onClick={this.logout.bind(this)}>Logout</button>
+        {this.logoutButton()}
         {this.hideSubmitButton()}
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Body>
