@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Editor from './editor.js';
 import {Modal, Button} from 'react-bootstrap';
 import {withRouter} from 'react-router';
+import { BlogComments } from '../../../imports/collections/blog_comments.js';
 
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css'; // import styles

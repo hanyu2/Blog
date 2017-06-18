@@ -31,5 +31,5 @@ class CommentList extends Component{
 
 export default createContainer((props) =>{
   handle = Meteor.subscribe('blog_comment', props.blog._id);
-  return{comments: BlogComments.find({}).fetch(), ready : handle.ready()};
+  return{comments: BlogComments.find({blogId : props.blog._id}).fetch(), ready : handle.ready()};
 }, CommentList);

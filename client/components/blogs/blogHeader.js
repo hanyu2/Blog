@@ -3,12 +3,15 @@ import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
 import { ClientStorage } from 'meteor/ostrio:cstorage';
 import {withRouter} from 'react-router';
+import { BlogComments } from '../../../imports/collections/blog_comments.js';
+import { createContainer } from 'meteor/react-meteor-data';
+import NotificationItem from './notificationItem.js';
 
 class BlogHeader extends Component{
-
   constructor(props) {
     super(props);
   }
+
   onLogout(event){
     event.preventDefault();
     console.log("loggin out");
@@ -16,8 +19,27 @@ class BlogHeader extends Component{
     this.props.history.push('/blog');
   }
 
+  getNotifications(){
+    const isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
+    if (!isLoggedIn) {
+      return <div></div>
+    }else{
+      return <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Notifications<span className="badge badge-inverse">{this.props.unreadComments.length}</span><span className="caret"></span>
+        </a>
+        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {this.props.unreadComments.map(comment => {
+            return <NotificationItem key={comment._id} comment={comment}/>
+          })}
+        </ul>
+      </li>;
+    }
+  }
+
   componentDidMount(){
     $('.navbar-default').css('margin-bottom','0px');
+    $('.dropdown-toggle').dropdown();
   }
 
   render(){
@@ -26,18 +48,17 @@ class BlogHeader extends Component{
     if (!isLoggedIn) {
       submit = <div></div>
     } else {
-      submit= <ul className="nav navbar-nav">
+      submit=
         <li>
           <Link to="/create">Create</Link>
-        </li>
-      </ul>;
+        </li>;
     }
 
     let logout = null;
     if (!isLoggedIn) {
       submit = <div></div>
     } else {
-      logout= <div><button type="button" className="btn btn-default navbar-btn" onClick={this.onLogout.bind(this)}>Logout</button></div>
+      logout= <button type="button" className="btn btn-default navbar-btn" onClick={this.onLogout.bind(this)}>Logout</button>
     }
 
     return(
@@ -49,11 +70,18 @@ class BlogHeader extends Component{
           <li>
             <Link to="/blog">Blog</Link>
           </li>
+          {submit}
+          {logout}
+          {this.getNotifications()}
         </ul>
-        {submit}
-        {logout}
       </nav>
     )
   };
 }
-export default withRouter(BlogHeader);
+
+const commentContainer = createContainer((props) => {
+  handle = Meteor.subscribe("comment_unread");
+  return{unreadComments : BlogComments.find({read: false}).fetch(), ready:handle.ready()}
+}, BlogHeader)
+
+export default withRouter(commentContainer);
