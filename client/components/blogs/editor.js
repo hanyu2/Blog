@@ -67,7 +67,7 @@ class Editor extends Component {
       <div className="editor-margin">
         <div className="form-group">
           <label style={bold}>Title:</label>
-          <input type="text" className="form-control " id="usr" onChange={this.getTitle.bind(this)} value={this.props.blog === undefined ? "" :  this.props.blog[0].title}/>
+          <input type="text" className="form-control " id="usr" onChange={this.getTitle.bind(this)}/>
         </div>
 				<ReactSummernote
           value={this.props.blog === undefined ? "" : this.props.blog[0].content}
