@@ -5,6 +5,9 @@
   url("./fonts/summernote.ttf") format("truetype")
 }
 
+.render-target{
+  background-color: #f9fbfb;
+}
 
 .react-text {
   position: relative;

@@ -68,13 +68,14 @@ class BlogComment extends Component{
         console.log(error); //If there is any error, will get error here
       }else{
         const user = Meteor.user();
-        this.setState({
-          user:user.profile.name
-        }, function(){
-          console.log(window.location.href);
-          console.log(this.state.user);
-        })
-        this.close();
+        console.log(user);
+        // this.setState({
+        //   user:user.profile.name
+        // }, function(){
+        //   console.log(window.location.href);
+        //   console.log(this.state.user);
+        // })
+
       }
     }.bind(this));
   }
