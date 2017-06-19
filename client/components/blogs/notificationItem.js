@@ -13,13 +13,11 @@ class NotificationItem extends Component{
   }
 
   setRead(){
-    console.log("remove");
     Meteor.call('blog_comment.setRead', this.props.comment._id);
   }
 
   render(){
     const blogs = Blogs.find({_id: this.props.comment.blogId}).fetch();
-    console.log(blogs[0]);
     const url = '/blog/' + blogs[0]._id;
     return(
         <li><Link to={url} onClick={this.setRead.bind(this)}>{blogs[0].title}</Link></li>

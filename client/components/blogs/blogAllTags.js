@@ -18,14 +18,14 @@ class BlogAllTags extends Component{
   getAllTags(){
     return(
       this.props.blog_tags.map(tag => {
-        return <button className="btn btn-default" onClick={this.clickTag.bind(this)} key={tag._id} name={tag.name}>{tag.name}</button>
+        return <button className="btn btn-default btn-sm" onClick={this.clickTag.bind(this)} key={tag._id} name={tag.name}>{tag.name}</button>
       })
     )
   }
 
   render(){
     return (
-      <div className="center margin-around">
+      <div className="center tagList">
          {this.props.ready ? this.getAllTags() : ' '}
       </div>
     )

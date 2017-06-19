@@ -12,7 +12,7 @@ class BlogDetail extends Component {
   getTags(tag){
     return(
       tag.map(tag => {
-        return <button className="btn btn-default" key={tag}>{tag}</button>
+        return <button className="btn btn-default btn-sm" key={tag}>{tag}</button>
       })
     )
   }
@@ -32,7 +32,7 @@ class BlogDetail extends Component {
             {blog.title}
           </h1>
         </div>
-        <div className="center">
+        <div className="center tagList">
           Han Yu wrote on {time}
           {this.getTags(tags)}
         </div>

@@ -8,12 +8,12 @@ import BlogAllTags from './blogAllTags.js';
 import {connect} from 'react-redux';
 
 class BlogList extends Component{
-  renderTags(){
+  renderBlogs(){
     if(this.props.tag === null){
       return(
-        <ul className="list-group margin-around">
+        <div className="community__posts">
             {this.props.blogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}
-        </ul>
+        </div>
       )
     }else{
       const selectedTag = this.props.tag;
@@ -21,20 +21,20 @@ class BlogList extends Component{
         return blog.tag.includes(selectedTag);
       });
       return(
-        <ul className="list-group margin-around">
+        <div className="center community__posts">
             {taggedBlogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}
-        </ul>
+        </div>
       )
     }
   }
 
   render(){
     return(
-      <div>
+      <div className="center">
+        <BlogAllTags />
         <div>
-          <BlogAllTags />
+          {this.renderBlogs()}
         </div>
-        {this.renderTags()}
       </div>
     );
   };

@@ -15,7 +15,7 @@ class BlogItem extends Component{
     const tags = this.props.blog.tag.slice();
     return(
       tags.map(tag => {
-        return <button key={tag} className="btn btn-default">{tag}</button>
+        return <button key={tag} className="btn btn-default btn-sm">{tag}</button>
       })
     )
   }
@@ -28,15 +28,21 @@ class BlogItem extends Component{
     const time = this.props.blog.createdAt.toString();
     isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
     return(
-      <div className='jumbotron jumbotron-fluid margin-around'>
-        <div className="container">
-          <h1 className="display-3"><Link  to={url}>{title}</Link></h1>
-            {isLoggedIn ? <Link className='rightMost  btn btn-info' to={editurl}>edit</Link> : ''}
-            {isLoggedIn ? <DeleteWarn blog={this.props.blog}/>: ''}
-          <p className="lead">
-            {this.getTags()}
-          </p>
-          created on : {time}
+      <div className='community-post center'>
+        <div className="community-post__content center">
+          <h3><Link className="community-post__title center" to={url}>{title}</Link></h3>
+        </div>
+        <div className="lead">
+          {this.getTags()}
+        </div>
+        <div>
+          {time}
+        </div>
+        <div className="rightMost">
+          <div className="in-line">
+            {isLoggedIn ? <Link className='btn btn-info' to={editurl}>edit</Link> : ''}
+          </div>
+          {isLoggedIn ? <DeleteWarn blog={this.props.blog}/>: ''}
         </div>
       </div>
     )

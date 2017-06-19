@@ -26,8 +26,8 @@ class DeleteWarn extends Component{
 
   render(){
     return(
-      <div>
-        <button className="btn btn-danger rightMost" onClick={this.open.bind(this)}>delete</button>
+      <div className="in-line">
+        <button className="btn btn-danger" onClick={this.open.bind(this)}>delete</button>
         <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
           <Modal.Body>
             <h4>Are you sure to delete this blog?</h4>
