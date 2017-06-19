@@ -26,6 +26,10 @@ class BlogComment extends Component {
     }
   }
 
+  componentWillMount(){
+    ClientStorage.set('user', '');
+  }
+
   getContent(content) {
     this.setState({comment: content})
   }
@@ -49,7 +53,7 @@ class BlogComment extends Component {
   componentDidMount() {
     $(".dropdown-toggle").dropdown();
     $(".note-editing-area").click(function() {
-      if (this.state.user.length === 0) {
+      if (ClientStorage.get('user').length === 0) {
         this.setState({showModal: true});
       }
     }.bind(this));
@@ -64,19 +68,14 @@ class BlogComment extends Component {
       } else {
         const user = Meteor.user();
         console.log(user);
-        this.setState({
-          user: user.profile.name
-        }, function() {
-          console.log(window.location.href);
-          console.log(this.state.user);
-        });
+        ClientStorage.set('user', user.profile.name);
         this.close();
       }
     }.bind(this));
   }
 
   hideSubmitButton() {
-    if (this.state.user.length === 0) {
+    if (ClientStorage.get('user').length === 0) {
       return '';
     } else {
       return (
@@ -110,11 +109,11 @@ class BlogComment extends Component {
     Meteor._localStorage.removeItem('Meteor.loginToken');
     Meteor._localStorage.removeItem('Meteor.loginTokenExpires');
     Meteor._localStorage.removeItem('Meteor.userId');
-    this.setState({user: ''});
+    ClientStorage.set('user', '');
   }
 
   logoutButton() {
-    if (this.state.user.length === 0) {
+    if (ClientStorage.get('user').length === 0) {
       return '';
     } else {
       return <button type="button" className="btn btn-primary button-right" onClick={this.logout.bind(this)}>Logout</button>
