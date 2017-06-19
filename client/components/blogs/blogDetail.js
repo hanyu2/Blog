@@ -19,6 +19,7 @@ class BlogDetail extends Component {
 
   getContent(){
     const blog = Blogs.find({_id : this.props.match.params.id}).fetch()[0];
+    Meteor.call('blog_increment_views', blog._id);
     const content = blog.content;
     const tags = blog.tag;
     const time = blog.createdAt.toDateString();
@@ -38,7 +39,7 @@ class BlogDetail extends Component {
         </div>
         <article>
           <div className="container">
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            <div className="article" dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         </article>
         <CommentList blog={blog}/>

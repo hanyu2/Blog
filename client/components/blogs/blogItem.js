@@ -15,7 +15,7 @@ class BlogItem extends Component{
     const tags = this.props.blog.tag.slice();
     return(
       tags.map(tag => {
-        return <button key={tag} className="btn btn-default btn-sm">{tag}</button>
+        return <div className="in-line normal margin-left" key={tag} >{tag}</div>
       })
     )
   }
@@ -33,6 +33,15 @@ class BlogItem extends Component{
           <h3><Link className="community-post__title center" to={url}>{title}</Link></h3>
         </div>
         <div className="lead">
+          <i className="fa fa-eye normal margin-right" aria-hidden="true"></i>
+          <div className="in-line normal margin-right">
+            {this.props.blog.views}
+          </div>
+          <i className="fa fa-commenting-o normal margin-right" aria-hidden="true"></i>
+          <div className="in-line normal margin-right">
+            {this.props.blog.comments}
+          </div>
+          <i className="fa fa-tags normal" aria-hidden="true"></i>
           {this.getTags()}
         </div>
         <div>

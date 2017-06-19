@@ -341,3 +341,28 @@ h1 {
    font-size: .875rem;
    border-radius: .2rem;
 }
+
+.container .article {
+    font-family: 'Open Sans',sans-serif;
+    font-size: 18px;
+    letter-spacing: .1px;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.margin-left{
+  margin-left: 5px;
+}
+
+.margin-right{
+  margin-right: 5px;
+}
+
+.lead .normal{
+  font-size: 80%
+}
+
+.leftMost{
+  float: left;
+}

@@ -30,13 +30,19 @@ Meteor.methods({
       status: status,
       author: this.userId,
       content: content,
-      view: 0,
+      views: 0,
       comments: 0,
       likes: 0,
     });
   },
   'blogs.delete': function(blog) {
     Blogs.remove(blog);
+  },
+  'blog_increment_views' : function(blogId){
+    Blogs.update({_id : blogId}, {$inc: {views: 1}});
+  },
+  'blog_increment_comments' : function(blogId){
+    Blogs.update({_id : blogId}, {$inc: {comments: 1}});
   }
 });
 
