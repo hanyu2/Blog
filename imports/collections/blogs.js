@@ -1,6 +1,4 @@
-import {
-  Mongo
-} from 'meteor/mongo';
+import {Mongo} from 'meteor/mongo';
 
 if (Meteor.isServer) {
   Meteor.publish('blogs', function() {
@@ -8,13 +6,13 @@ if (Meteor.isServer) {
   });
 
   Meteor.publish("singleBlog", function(blog_id) {
-    let blog = Apps.find({
+    let blog = Blogs.find({
       _id: blog_id
     });
     return blog;
   });
   Meteor.publish("tagBlog", function(blog_tag) {
-    let blog = Apps.find({
+    let blog = Blogs.find({
       tag: blog_tag
     });
     return blog;

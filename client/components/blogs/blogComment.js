@@ -4,6 +4,7 @@ import {Modal, Button} from 'react-bootstrap';
 import {withRouter} from 'react-router';
 import {ClientStorage} from 'meteor/ostrio:cstorage';
 import ReactSummernote from 'react-summernote';
+import GoogleLogin from 'react-google-login';
 import 'react-summernote/dist/react-summernote.css'; // import styles
 
 // Import bootstrap(v3 or v4) dependencies
@@ -39,7 +40,7 @@ class BlogComment extends Component {
       alert("Please enter comment content.");
     } else {
 
-      Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id, ClientStorage.get('user'));
+      Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id, ClientStorage.get('user'), ClientStorage.get('userEmail'));
       document.querySelector(".note-editable.panel-body").innerHTML = "";
       this.setState({comment: ''})
     }
@@ -57,21 +58,8 @@ class BlogComment extends Component {
         this.setState({showModal: true});
       }
     }.bind(this));
-  }
 
-  login() {
-    Meteor.loginWithGoogle({
-      requestPermissions: ['email']
-    }, function(error) {
-      if (error) {
-        console.log(error); //If there is any error, will get error here
-      } else {
-        const user = Meteor.user();
-        console.log(user);
-        ClientStorage.set('user', user.profile.name);
-        this.close();
-      }
-    }.bind(this));
+
   }
 
   hideSubmitButton() {
@@ -120,6 +108,17 @@ class BlogComment extends Component {
     }
   }
 
+  responseSuccess(response){
+    ClientStorage.set('user', response.profileObj.name);
+    ClientStorage.set('userEmail', response.profileObj.email);
+    console.log(response);
+    this.close();
+  }
+
+  responseFailure(response){
+    console.log(response);
+  }
+
   render() {
     return (
       <div className="container">
@@ -132,9 +131,12 @@ class BlogComment extends Component {
           </Modal.Body>
           <Modal.Footer>
             <div className="center">
-              <button type="button" className="btn btn-danger" style={width} onClick={this.login.bind(this)}>
-                <i className="fa fa-google" aria-hidden="true"></i>
-              </button>
+              <GoogleLogin
+                clientId="117054743738-hqs7vkc1o7vn0aji6ehimkd4br3ff32a.apps.googleusercontent.com"
+                buttonText="Google"
+                onSuccess={this.responseSuccess.bind(this)}
+                onFailure={this.responseFailure.bind(this)}
+              />
             </div>
           </Modal.Footer>
         </Modal>

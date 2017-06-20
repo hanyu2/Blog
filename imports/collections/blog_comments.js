@@ -11,12 +11,13 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-  'blog_comments.insert': function(comment, blogId, userName) {
+  'blog_comments.insert': function(comment, blogId, userName, userEmail) {
     BlogComments.insert({
       comment: comment,
       blogId : blogId,
       userName : userName,
       date: new Date(),
+      email : userEmail,
       read: false
     });
     Meteor.call('blog_increment_comments', blogId);
