@@ -367,3 +367,18 @@ h1 {
 .leftMost{
   float: left;
 }
+
+.fb-login-button {
+    display: inline-block;
+    background: #4c69ba;
+    color: rgb(255, 255, 255);
+    width: 190px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Roboto;
+    margin-top: 5px;
+}

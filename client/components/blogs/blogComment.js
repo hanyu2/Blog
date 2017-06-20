@@ -94,6 +94,9 @@ class BlogComment extends Component {
 
   logout() {
     ClientStorage.set('user', '');
+    this.setState({
+      user:''
+    })
   }
 
   logoutButton() {
@@ -109,6 +112,8 @@ class BlogComment extends Component {
     ClientStorage.set('userEmail', response.profileObj.email);
     console.log(response);
     this.close();
+    var y = $(window).scrollTop();  //your current y position on the page
+    $(window).scrollTop(y+150);
   }
 
   responseFailure(response){
@@ -116,10 +121,16 @@ class BlogComment extends Component {
   }
 
   responseFacebook(response){
-    ClientStorage.set('user', response.name);
-    ClientStorage.set('userEmail', response.email);
-    console.log(response);
-    this.close();
+    console.log(response.name);
+    if(response.name !== undefined){
+      ClientStorage.set('user', response.name);
+      ClientStorage.set('userEmail', response.email);
+      this.close();
+      var y = $(window).scrollTop();  //your current y position on the page
+      $(window).scrollTop(y+150);
+    }else{
+      alert('Facebook login failed');
+    }
   }
 
   render() {
@@ -145,10 +156,12 @@ class BlogComment extends Component {
               </div>
               <div>
                 <FacebookLogin
-                  appId="447894222248930"
+                  appId="1733191136979708"
+                  textButton=""
                   autoLoad={true}
                   fields="name,email,picture"
                   icon="fa-facebook"
+                  cssClass="fb-login-button"
                   callback={this.responseFacebook.bind(this)} />
               </div>
             </div>
