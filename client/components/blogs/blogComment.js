@@ -38,8 +38,8 @@ class BlogComment extends Component {
     if (this.state.comment.length === 0) {
       alert("Please enter comment content.");
     } else {
-      console.log(this.state.user);
-      Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id, this.state.user);
+
+      Meteor.call('blog_comments.insert', this.state.comment, this.props.blog._id, ClientStorage.get('user'));
       document.querySelector(".note-editable.panel-body").innerHTML = "";
       this.setState({comment: ''})
     }
@@ -69,6 +69,7 @@ class BlogComment extends Component {
         const user = Meteor.user();
         console.log(user);
         ClientStorage.set('user', user.profile.name);
+        console.log(ClientStorage.get('user'));
         this.close();
       }
     }.bind(this));
