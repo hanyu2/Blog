@@ -69,7 +69,6 @@ class BlogComment extends Component {
         const user = Meteor.user();
         console.log(user);
         ClientStorage.set('user', user.profile.name);
-        console.log(ClientStorage.get('user'));
         this.close();
       }
     }.bind(this));
