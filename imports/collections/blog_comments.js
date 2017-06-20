@@ -3,7 +3,7 @@ import Blogs from './blogs.js';
 
 if (Meteor.isServer) {
   Meteor.publish('blog_comment', function(blogId) {
-   return blogComments = BlogComments.find({blogId: blogId}, {sort :{date : 1}});
+   return blogComments = BlogComments.find({blogId: blogId}, {sort :{date : -1}});
   });
   Meteor.publish('comment_unread', function() {
    return BlogComments.find({read: false});

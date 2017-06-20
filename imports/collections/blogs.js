@@ -2,7 +2,7 @@ import {Mongo} from 'meteor/mongo';
 
 if (Meteor.isServer) {
   Meteor.publish('blogs', function() {
-    return Blogs.find({});
+    return Blogs.find({}, {sort: {createdAt: -1}});
   });
 
   Meteor.publish("singleBlog", function(blog_id) {

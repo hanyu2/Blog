@@ -25,7 +25,6 @@ class CommentList extends Component{
           <i className="fa fa-commenting-o" aria-hidden="true"></i>
           <span className="margin-left">{this.props.comments.length}&nbsp;Replies</span>
         </div>
-        <hr/>
         <ul className="list-group margin-around container">
           {this.renderComments()}
         </ul>

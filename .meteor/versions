@@ -31,6 +31,8 @@ ejson@1.0.13
 email@1.2.3
 es5-shim@4.6.15
 fastclick@1.0.13
+gadicohen:robots-txt@0.0.10
+gadicohen:sitemaps@0.0.26
 geojson-utils@1.0.10
 google-oauth@1.2.4
 hot-code-push@1.0.4

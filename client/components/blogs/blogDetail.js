@@ -54,8 +54,8 @@ class BlogDetail extends Component {
   };
 }
 
-export default createContainer(() =>{
-  handle = Meteor.subscribe('blogs');
+export default createContainer((props) =>{
+  handle = Meteor.subscribe('singleBlog', props.match.params.id);
   return {
     subsready:  handle.ready()
   };
