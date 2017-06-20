@@ -8,9 +8,8 @@ let store = createStore(BlogReducer)
 
 Meteor.startup(() => {
   ReactDOM.render(<Router store={store}/>, document.querySelector(".render-target"));
-  if(location.host.indexOf('han-yu.me') !== 0) {
-    console.log(location.host);
-    if(location.host.indexOf('localhost') !== 0){
+  if(location.host.indexOf('blog.han-yu.me') < 0) {
+    if(location.host.indexOf('localhost') < 0){
       location = 'http://blog.han-yu.me'
     }
   }
