@@ -5,6 +5,8 @@ import {withRouter} from 'react-router';
 import {ClientStorage} from 'meteor/ostrio:cstorage';
 import ReactSummernote from 'react-summernote';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import FontAwesome from '../notifications/fontawsome.js'
 import 'react-summernote/dist/react-summernote.css'; // import styles
 
 // Import bootstrap(v3 or v4) dependencies
@@ -58,8 +60,6 @@ class BlogComment extends Component {
         this.setState({showModal: true});
       }
     }.bind(this));
-
-
   }
 
   hideSubmitButton() {
@@ -93,10 +93,6 @@ class BlogComment extends Component {
   }
 
   logout() {
-    Meteor.logout();
-    Meteor._localStorage.removeItem('Meteor.loginToken');
-    Meteor._localStorage.removeItem('Meteor.loginTokenExpires');
-    Meteor._localStorage.removeItem('Meteor.userId');
     ClientStorage.set('user', '');
   }
 
@@ -119,6 +115,13 @@ class BlogComment extends Component {
     console.log(response);
   }
 
+  responseFacebook(response){
+    ClientStorage.set('user', response.name);
+    ClientStorage.set('userEmail', response.email);
+    console.log(response);
+    this.close();
+  }
+
   render() {
     return (
       <div className="container">
@@ -131,12 +134,23 @@ class BlogComment extends Component {
           </Modal.Body>
           <Modal.Footer>
             <div className="center">
-              <GoogleLogin
-                clientId="117054743738-hqs7vkc1o7vn0aji6ehimkd4br3ff32a.apps.googleusercontent.com"
-                buttonText="Google"
-                onSuccess={this.responseSuccess.bind(this)}
-                onFailure={this.responseFailure.bind(this)}
-              />
+              <div>
+                <GoogleLogin
+                  clientId="117054743738-33a56jir2b7hdip5p49ohoapkncldbp9.apps.googleusercontent.com"
+                  onSuccess={this.responseSuccess.bind(this)}
+                  onFailure={this.responseFailure.bind(this)}
+                  >
+                  <FontAwesome name="Google" />
+                </GoogleLogin>
+              </div>
+              <div>
+                <FacebookLogin
+                  appId="447894222248930"
+                  autoLoad={true}
+                  fields="name,email,picture"
+                  icon="fa-facebook"
+                  callback={this.responseFacebook.bind(this)} />
+              </div>
             </div>
           </Modal.Footer>
         </Modal>
