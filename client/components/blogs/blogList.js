@@ -18,8 +18,11 @@ class BlogList extends Component{
     }else{
       const selectedTag = this.props.tag;
       const taggedBlogs = this.props.blogs.filter(function(blog){
+        if(selectedTag === 'all'){
+          return this.props.blogs;
+        }
         return blog.tag.includes(selectedTag);
-      });
+      }.bind(this));
       return(
         <div className="center community__posts">
             {taggedBlogs.map(blog => <BlogItem key={blog._id} blog={blog}/>)}

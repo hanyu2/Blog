@@ -26,6 +26,7 @@ class BlogAllTags extends Component{
   render(){
     return (
       <div className="center tagList">
+        <button className="btn btn-default btn-sm" onClick={this.clickTag.bind(this)} name="all">All</button>
          {this.props.ready ? this.getAllTags() : ' '}
       </div>
     )

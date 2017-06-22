@@ -19,6 +19,13 @@ class BlogHeader extends Component{
     this.props.history.push('/blog');
   }
 
+  renderUnreadComments(){
+    console.log(this.props.unreadComments.length);
+    if(this.props.unreadComments.length > 0){
+      return this.props.unreadComments.map(comment => <NotificationItem key={comment._id} comment={comment}/>)
+    }
+  }
+
   getNotifications(){
     const isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
     if (!isLoggedIn) {
@@ -29,9 +36,7 @@ class BlogHeader extends Component{
           Notifications<span className="badge badge-inverse">{this.props.unreadComments.length}</span><span className="caret"></span>
         </a>
         <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          {this.props.unreadComments.map(comment => {
-            return <NotificationItem key={comment._id} comment={comment}/>
-          })}
+          {this.renderUnreadComments()}
         </ul>
       </li>;
     }

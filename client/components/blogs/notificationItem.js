@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {Blogs} from '../../../imports/collections/blogs.js';
-import { createContainer } from 'meteor/react-meteor-data';
 import {Link} from 'react-router-dom';
-import {withRouter} from 'react-router';
 
 class NotificationItem extends Component{
   constructor(props){
     super(props)
+    console.log(props);
     this.state={
       blog:''
     }
@@ -17,12 +16,13 @@ class NotificationItem extends Component{
   }
 
   render(){
-    const blogs = Blogs.find({_id: this.props.comment.blogId}).fetch();
-    const url = '/blog/' + blogs[0]._id;
+    const blog = Blogs.findOne({_id: this.props.comment.blogId});
+    console.log(blog);
+    const url = '/blog/' + blog._id;
     return(
-        <li><Link to={url} onClick={this.setRead.bind(this)}>{blogs[0].title}</Link></li>
+        <li><Link to={url} onClick={this.setRead.bind(this)}>{blog.title}</Link></li>
     )
   }
 }
 
-export default withRouter(NotificationItem);
+export default NotificationItem;
