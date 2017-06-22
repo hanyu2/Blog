@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 class NotificationItem extends Component{
   constructor(props){
     super(props)
-    console.log(props);
     this.state={
       blog:''
     }
@@ -17,7 +16,6 @@ class NotificationItem extends Component{
 
   render(){
     const blog = Blogs.findOne({_id: this.props.comment.blogId});
-    console.log(blog);
     const url = '/blog/' + blog._id;
     return(
         <li><Link to={url} onClick={this.setRead.bind(this)}>{blog.title}</Link></li>

@@ -51,7 +51,11 @@ function mapStateToProps(state) {
 
 const ListContainer = createContainer((props) => {
   Meteor.subscribe('blogs')
-  return {blogs: Blogs.find({status : "posted"}, {sort:{createdAt : 1}}).fetch() };
+  if(props.saved !== undefined){
+    return {blogs: Blogs.find({status : "saved"}, {sort:{createdAt : -1}}).fetch() };
+  }else{
+    return {blogs: Blogs.find({status : "posted"}, {sort:{createdAt : -1}}).fetch() };
+  }
 }, BlogList);
 
 export default connect(mapStateToProps)(ListContainer);

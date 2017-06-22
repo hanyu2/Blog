@@ -20,7 +20,6 @@ class BlogHeader extends Component{
   }
 
   renderUnreadComments(){
-    console.log(this.props.unreadComments.length);
     if(this.props.unreadComments.length > 0){
       return this.props.unreadComments.map(comment => <NotificationItem key={comment._id} comment={comment}/>)
     }
@@ -59,12 +58,23 @@ class BlogHeader extends Component{
         </li>;
     }
 
+    let saved = null;
+    if (!isLoggedIn) {
+      saved = <div></div>
+    } else {
+      saved=
+        <li>
+          <Link to="/saved">Saved</Link>
+        </li>;
+    }
+
     let logout = null;
     if (!isLoggedIn) {
       submit = <div></div>
     } else {
       logout= <button type="button" className="btn btn-default navbar-btn" onClick={this.onLogout.bind(this)}>Logout</button>
     }
+
 
     return(
       <nav className="navbar navbar-default" role="navigation">
@@ -76,6 +86,7 @@ class BlogHeader extends Component{
             <Link to="/blog">Blog</Link>
           </li>
           {submit}
+          {saved}
           {logout}
           {this.getNotifications()}
         </ul>
