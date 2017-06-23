@@ -8,7 +8,7 @@ import { ClientStorage } from 'meteor/ostrio:cstorage';
 class BlogCreate extends Component{
 
   isAuthenticated(){
-    return ClientStorage.get('user') === 'hanyu2@asu.edu';
+    return Meteor.user() === undefined ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
   }
 
   renderContent(){

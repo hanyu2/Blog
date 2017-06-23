@@ -30,6 +30,7 @@ class Login extends Component {
       if (error) {
         alert(error);
       } else {
+        console.log(Meteor.user());
         ClientStorage.set('user', stat.email);
         prop.history.push('/blog');
       }

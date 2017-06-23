@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
-import { ClientStorage } from 'meteor/ostrio:cstorage';
 import {withRouter} from 'react-router';
 import { BlogComments } from '../../../imports/collections/blog_comments.js';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -26,7 +25,7 @@ class BlogHeader extends Component{
   }
 
   getNotifications(){
-    const isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
+    const isLoggedIn = Meteor.user() === undefined ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
     if (!isLoggedIn) {
       return <div></div>
     }else{
@@ -35,7 +34,7 @@ class BlogHeader extends Component{
           Notifications<span className="badge badge-inverse">{this.props.unreadComments.length}</span><span className="caret"></span>
         </a>
         <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          {this.renderUnreadComments()}
+          {this.props.unreadComments.map(comment => <NotificationItem key={comment._id} comment={comment}/>)}
         </ul>
       </li>;
     }
@@ -47,7 +46,8 @@ class BlogHeader extends Component{
   }
 
   render(){
-    const isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
+    const isLoggedIn = Meteor.user() === undefined ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
+
     let submit = null;
     if (!isLoggedIn) {
       submit = <div></div>
