@@ -13,8 +13,7 @@ class BlogHeader extends Component{
 
   onLogout(event){
     event.preventDefault();
-    console.log("loggin out");
-    ClientStorage.empty();
+    Meteor.logout();
     this.props.history.push('/blog');
   }
 
@@ -25,7 +24,7 @@ class BlogHeader extends Component{
   }
 
   getNotifications(){
-    const isLoggedIn = Meteor.user() === undefined ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
+    const isLoggedIn = Meteor.user() === undefined || Meteor.user() === null ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
     if (!isLoggedIn) {
       return <div></div>
     }else{
@@ -46,7 +45,7 @@ class BlogHeader extends Component{
   }
 
   render(){
-    const isLoggedIn = Meteor.user() === undefined ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
+    const isLoggedIn = Meteor.user() === undefined || Meteor.user() === null ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
 
     let submit = null;
     if (!isLoggedIn) {

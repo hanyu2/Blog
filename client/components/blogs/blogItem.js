@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 import {Link} from 'react-router-dom';
-import { ClientStorage } from 'meteor/ostrio:cstorage';
 import BlogDetail from './blogDetail.js';
 import BlogEdit from './blogEdit.js';
 import DeleteWarn from '../notifications/deleteWarn.js';
@@ -26,7 +25,7 @@ class BlogItem extends Component{
     const url = `/blog/${this.props.blog._id}`;
     const editurl = `/edit/${this.props.blog._id}`;
     const time = this.props.blog.createdAt.toString();
-    isLoggedIn = ClientStorage.get('user') === 'hanyu2@asu.edu';
+    const isLoggedIn = Meteor.user() === undefined || Meteor.user() === null ? false : (Meteor.user().emails[0].address === 'hanyu2@asu.edu');
     return(
       <div className='community-post center'>
         <div className="community-post__content center">
