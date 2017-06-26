@@ -84,6 +84,9 @@ class BlogHeader extends Component{
           <li>
             <Link to="/blog">Blog</Link>
           </li>
+          <li>
+            <Link to="/tools">Tools</Link>
+          </li>
           {submit}
           {saved}
           {logout}

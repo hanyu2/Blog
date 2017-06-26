@@ -8,6 +8,7 @@ import Register from './components/authentication/register.js';
 import BlogCreate from './components/blogs/blogCreate.js';
 import BlogEdit from './components/blogs/blogEdit.js';
 import SavedBlogs from './components/blogs/savedBlogs.js';
+import Tools from './components/misc/tools.js';
 import { Provider } from 'react-redux';
 
 const Routes = ({ store }) => (
@@ -20,7 +21,8 @@ const Routes = ({ store }) => (
        <Route path="/edit/:id" component={BlogEdit}/>
       //  <Route path="/register" component={Register}/>
        <Route path="/create" component={BlogCreate}/>
-      <Route path="/saved" component={SavedBlogs}/>
+       <Route path="/tools" component={Tools}/>
+       <Route path="/saved" component={SavedBlogs}/>
        <Route path="/" component={Blog}/>
      </Switch>
     </BrowserRouter>
