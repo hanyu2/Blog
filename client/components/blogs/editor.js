@@ -21,10 +21,10 @@ class Editor extends Component {
   constructor(props){
     super(props);
     this.state = {
-       title: '',
-       content: '',
-       tags: [],
-			 status: 'posted'
+       title: this.props.blog[0] == null ? "" : this.props.blog[0].title,
+       content: this.props.blog[0] == null ? "" : this.props.blog[0].content,
+       tags: this.props.blog[0] == null ? "" : this.props.blog[0].tags,
+			 status: this.props.blog[0] == null ? "" : this.props.blog[0].status
      }
   }
 
@@ -46,7 +46,11 @@ class Editor extends Component {
 		}else if(this.state.content.length === 0){
 			alert("content is empty");
 		}else{
-	    Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags, this.state.status);
+			if(this.props.blog[0] === undefined){
+	    	Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags, this.state.status);
+			}else{
+				Meteor.call('blogs.update', this.props.blog[0]._id, this.state.title, this.state.content);
+			}
 			this.props.history.push('/blog');
 		}
   }
@@ -60,6 +64,7 @@ class Editor extends Component {
 
 	componentDidMount(){
 		$(".dropdown-toggle").dropdown();
+		$("#title").val(this.props.blog[0] == null ? "" : this.props.blog[0].title);
 	}
 
   getEditor(){
@@ -67,7 +72,7 @@ class Editor extends Component {
       <div className="editor-margin">
         <div className="form-group">
           <label style={bold}>Title:</label>
-          <input type="text" className="form-control " id="usr" onChange={this.getTitle.bind(this)}/>
+          <input type="text" className="form-control " id="title" onChange={this.getTitle.bind(this)}/>
         </div>
 				<ReactSummernote
           value={this.props.blog === undefined ? "" : this.props.blog[0].content}

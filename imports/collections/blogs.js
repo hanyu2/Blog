@@ -36,6 +36,9 @@ Meteor.methods({
   'blogs.delete': function(blog) {
     Blogs.remove(blog);
   },
+  'blogs.update' : function(blogId, blogTitle, blogContent){
+    Blogs.update({_id : blogId}, {$set:{title : blogTitle, content:blogContent}})
+  },
   'blog_increment_views' : function(blogId){
     Blogs.update({_id : blogId}, {$inc: {views: 1}});
   },

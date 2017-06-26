@@ -18,7 +18,6 @@ class BlogDetail extends Component {
   }
 
   getContent(){
-    console.log("getting content");
     const blog = Blogs.find({_id : this.props.match.params.id}).fetch()[0];
     Meteor.call('blog_increment_views', blog._id);
     const content = blog.content;
