@@ -21,10 +21,10 @@ class Editor extends Component {
   constructor(props){
     super(props);
     this.state = {
-       title: this.props.blog[0] == null ? "" : this.props.blog[0].title,
-       content: this.props.blog[0] == null ? "" : this.props.blog[0].content,
-       tags: this.props.blog[0] == null ? "" : this.props.blog[0].tags,
-			 status: this.props.blog[0] == null ? "" : this.props.blog[0].status
+       title: this.props.blog === null || this.props.blog === undefined ? "" : this.props.blog[0].title,
+       content: this.props.blog === null || this.props.blog === undefined ? "" : this.props.blog[0].content,
+       tags: this.props.blog === null || this.props.blog === undefined ? "" : this.props.blog[0].tags,
+			 status: this.props.blog === null || this.props.blog === undefined ? "" : this.props.blog[0].status
      }
   }
 
@@ -64,7 +64,7 @@ class Editor extends Component {
 
 	componentDidMount(){
 		$(".dropdown-toggle").dropdown();
-		$("#title").val(this.props.blog[0] == null ? "" : this.props.blog[0].title);
+		$("#title").val(this.props.blog === null || this.props.blog === undefined ? "" : this.props.blog[0].title);
 	}
 
   getEditor(){
