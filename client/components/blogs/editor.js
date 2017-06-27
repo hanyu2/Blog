@@ -47,7 +47,7 @@ class Editor extends Component {
 			alert("content is empty");
 		}else{
 			if(this.props.blog === undefined || this.props.blog === null){
-	    	Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags, this.state.status);
+	    	Meteor.call('blogs.insert', this.state.title, this.state.content, this.state.tags, "posted");
 			}else{
 				Meteor.call('blogs.update', this.props.blog[0]._id, this.state.title, this.state.content);
 			}

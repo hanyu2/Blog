@@ -18,6 +18,7 @@ class Tools extends Component{
           <button type="button" className="btn btn-primary margin-top" onClick={this.replace.bind(this)}>Replace</button>
           <textarea className="form-control margin-top" rows="5" id="new"></textarea>
         </div>
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=ZjgODejSXYciluSG2DZy-SNHRBdQ2PBUL8BhVVJBoY8'></script>
       </div>
     )
   }
